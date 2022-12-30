@@ -1,0 +1,19 @@
+{
+  "name": "ct-web-lit",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "lit": "^2.5.0"
+  },
+  "devDependencies": {
+    "@sand4rt/experimental-ct-web": "workspace:../playwright-ct-web",
+    "@playwright/test": "^1.29.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3"
+  }
+}

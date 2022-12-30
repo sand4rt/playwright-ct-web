@@ -1,0 +1,4 @@
+packages:
+  - 'ct-web/**'
+  - 'ct-web-lit/**'
+  - 'playwright-ct-web/**'

@@ -1,0 +1,31 @@
+{
+  "name": "@sand4rt/experimental-ct-web",
+  "version": "1",
+  "description": "Playwright Component Testing for Web Components",
+  "homepage": "https://playwright.dev",
+  "engines": {
+    "node": ">=14"
+  },
+  "author": {
+    "name": "sand4rt"
+  },
+  "license": "Apache-2.0",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./register": {
+      "types": "./register.d.ts",
+      "default": "./register.mjs"
+    },
+    "./hooks": {
+      "types": "./hooks.d.ts",
+      "default": "./hooks.mjs"
+    }
+  },
+  "dependencies": {
+    "vite": "^4.0.3",
+    "@playwright/test": "1.29.1"
+  }
+}

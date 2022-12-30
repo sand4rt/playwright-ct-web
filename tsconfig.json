@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "NodeNext",
+    "target": "ES2020",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist/",
+    "skipLibCheck": true,
+    "declaration": true
+  },
+  "include": ["src/"]
+}
