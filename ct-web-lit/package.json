@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "test": "npx playwright test"
   },
   "dependencies": {
     "lit": "^2.5.0"
