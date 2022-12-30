@@ -4,4 +4,4 @@ export class Counter extends HTMLElement {
   }
 }
 
-customElements.define('pw-button', Counter);
+customElements.define('pw-counter', Counter);

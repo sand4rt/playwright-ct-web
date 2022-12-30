@@ -4,4 +4,4 @@ export class MultiRoot extends HTMLElement {
   }
 }
 
-customElements.define('pw-button', MultiRoot);
+customElements.define('pw-multi-root', MultiRoot);

@@ -4,4 +4,4 @@ export class EmptyTemplate extends HTMLElement {
   }
 }
 
-customElements.define('pw-button', EmptyTemplate);
+customElements.define('pw-empty-template', EmptyTemplate);

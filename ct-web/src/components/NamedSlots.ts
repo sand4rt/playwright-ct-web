@@ -4,4 +4,4 @@ export class NamedSlots extends HTMLElement {
   }
 }
 
-customElements.define('pw-button', NamedSlots);
+customElements.define('pw-named-slots', NamedSlots);

@@ -4,4 +4,4 @@ export class Component extends HTMLElement {
   }
 }
 
-customElements.define('pw-button', Component);
+customElements.define('pw-component', Component);
