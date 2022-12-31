@@ -8,5 +8,8 @@
   "bugs": {
     "url": "https://github.com/sand4rt/playwright-ct-web/issues"
   },
-  "homepage": "https://github.com/sand4rt/playwright-ct-web#readme"
+  "homepage": "https://github.com/sand4rt/playwright-ct-web#readme",
+  "scripts": {
+    "test": "pnpm --stream -r test"
+  }
 }
