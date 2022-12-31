@@ -8,7 +8,7 @@ importers:
   ct-web:
     specifiers:
       '@playwright/test': ^1.29.1
-      '@sand4rt/experimental-ct-web': workspace:../playwright-ct-web
+      '@sand4rt/experimental-ct-web': workspace:*
       typescript: ^4.9.4
       vite: ^4.0.3
     devDependencies:
@@ -20,7 +20,7 @@ importers:
   ct-web-lit:
     specifiers:
       '@playwright/test': ^1.29.1
-      '@sand4rt/experimental-ct-web': workspace:../playwright-ct-web
+      '@sand4rt/experimental-ct-web': workspace:*
       lit: ^2.5.0
       typescript: ^4.9.4
       vite: ^4.0.3
