@@ -125,7 +125,7 @@ test('render a component without options', async ({ mount }) => {
   await expect(component).toContainText('test');
 });
 
-test.fixme('run hooks', async ({ page, mount }) => {
+test('run hooks', async ({ page, mount }) => {
   const messages: string[] = [];
   page.on('console', (m) => messages.push(m.text()));
   await mount<HooksConfig>(Button, {
@@ -135,8 +135,8 @@ test.fixme('run hooks', async ({ page, mount }) => {
     hooksConfig: { route: 'A' },
   });
   expect(messages).toEqual([
-    'Before mount: {"route":"A"}, app: true',
-    'After mount el: HTMLButtonElement',
+    'Before mount: {"route":"A"}',
+    'After mount',
   ]);
 });
 
