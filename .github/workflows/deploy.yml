@@ -18,6 +18,6 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@sand4rt'
-      - run: pnpm publish --filter @sand4rt/experimental-ct-web-tests --access public
+      - run: pnpm publish --filter @sand4rt/experimental-ct-web-tests --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
