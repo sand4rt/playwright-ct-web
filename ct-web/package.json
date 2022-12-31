@@ -10,7 +10,7 @@
     "test": "npx playwright test"
   },
   "devDependencies": {
-    "@sand4rt/experimental-ct-web": "workspace:../playwright-ct-web",
+    "@sand4rt/experimental-ct-web": "workspace:*",
     "@playwright/test": "^1.29.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.3"
