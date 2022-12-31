@@ -9,6 +9,10 @@
     "url": "https://github.com/sand4rt/playwright-ct-web/issues"
   },
   "homepage": "https://github.com/sand4rt/playwright-ct-web#readme",
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
   "scripts": {
     "test": "pnpm --stream -r test"
   }
