@@ -31,24 +31,25 @@ function createComponent(component) {
   }
 
   if (!Component)
-    throw new Error(`Unregistered component: ${component.type}. Following components are registered: ${[...registry.keys()]}`);
+    throw new Error(
+      `Unregistered component: ${
+        component.type
+      }. Following components are registered: ${[...registry.keys()]}`
+    );
 
   if (component.kind !== 'object')
     throw new Error('JSX mount notation is not supported');
 
   const webComponent = new Component();
 
-  if (component.options?.on) {
+  if (component.options?.on)
     throw new Error('events are not yet supported');
-  }
 
-  if (component.options?.slots) {
+  if (component.options?.slots)
     throw new Error('slots are not yet supported');
-  }
 
-  for (const [key, value] of Object.entries(component.options?.props || {})) {
-    webComponent[key] = value
-  }
+  for (const [key, value] of Object.entries(component.options?.props || {}))
+    webComponent[key] = value;
 
   return webComponent;
 }
@@ -57,16 +58,16 @@ window.playwrightUpdate = async (rootElement, component) => {
   throw new Error('component.update() is not yet supported');
 };
 
-window.playwrightUnmount = async rootElement => {
+window.playwrightUnmount = async (rootElement) => {
   rootElement.replaceChildren();
 };
 
 window.playwrightMount = async (component, rootElement, hooksConfig) => {
-  for (const hook of /** @type {any} */(window).__pw_hooks_before_mount || [])
+  for (const hook of /** @type {any} */ (window).__pw_hooks_before_mount || [])
     await hook({ hooksConfig });
 
   rootElement.appendChild(createComponent(component));
 
-  for (const hook of /** @type {any} */(window).__pw_hooks_after_mount || [])
+  for (const hook of /** @type {any} */ (window).__pw_hooks_after_mount || [])
     await hook({ hooksConfig });
 };
