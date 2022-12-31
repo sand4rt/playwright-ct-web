@@ -45,6 +45,10 @@ function createComponent(component) {
   return webComponent;
 }
 
+window.playwrightUnmount = async rootElement => {
+  rootElement.replaceChildren();
+};
+
 window.playwrightMount = async (component, rootElement, hooksConfig) => {
   for (const hook of /** @type {any} */(window).__pw_hooks_before_mount || [])
     await hook({ hooksConfig });
