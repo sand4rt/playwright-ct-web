@@ -4,12 +4,12 @@ on:
     types: [created]
 jobs:
   build:
-    runs-on: ubuntu-latest 
-    permissions: 
+    runs-on: ubuntu-latest
+    permissions:
       contents: read
-      packages: write 
+      packages: write
     steps:
-     - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2
         with:
           version: '7.x'
       - uses: actions/checkout@v3
