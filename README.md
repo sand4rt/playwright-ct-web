@@ -31,7 +31,6 @@ Now you can start adding your first test:
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-
 @customElement('pw-button')
 export class Button extends LitElement {
   render() {
