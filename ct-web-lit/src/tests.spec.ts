@@ -160,7 +160,7 @@ test('unmount a multi root component', async ({ mount, page }) => {
   await expect(page.locator('#root')).not.toContainText('root 2');
 });
 
-test.fixme('get textContent of the empty template', async ({ mount }) => {
+test('get textContent of the empty template', async ({ mount }) => {
   const component = await mount(EmptyTemplate);
   expect(await component.allTextContents()).toEqual(['']);
   expect(await component.textContent()).toBe('');
