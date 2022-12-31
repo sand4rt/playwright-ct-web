@@ -8,7 +8,7 @@ import { Component } from './components/Component';
 import { EmptyTemplate } from './components/EmptyTemplate';
 import type { HooksConfig } from '../playwright';
 
-test.fixme('render props', async ({ mount }) => {
+test('render props', async ({ mount }) => {
   const component = await mount(Button, {
     props: {
       title: 'Submit',
@@ -120,7 +120,7 @@ test.fixme('render a component with a named slot', async ({ mount }) => {
   await expect(component).toContainText('Footer');
 });
 
-test.fixme('render a component without options', async ({ mount }) => {
+test('render a component without options', async ({ mount }) => {
   const component = await mount(Component);
   await expect(component).toContainText('test');
 });

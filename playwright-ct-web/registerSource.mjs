@@ -36,7 +36,13 @@ function createComponent(component) {
   if (component.kind !== 'object')
     throw new Error('JSX mount notation is not supported');
 
-  return new Component();
+  const webComponent = new Component();
+
+  for (const [key, value] of Object.entries(component.options?.props || {})) {
+    webComponent[key] = value
+  }
+
+  return webComponent;
 }
 
 window.playwrightMount = async (component, rootElement, hooksConfig) => {

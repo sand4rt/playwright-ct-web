@@ -1,6 +1,6 @@
 {
   "name": "@sand4rt/experimental-ct-web",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Playwright Component Testing for Web Components",
   "homepage": "https://playwright.dev",
   "engines": {
