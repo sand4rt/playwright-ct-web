@@ -38,12 +38,24 @@ function createComponent(component) {
 
   const webComponent = new Component();
 
+  if (component.options?.on) {
+    throw new Error('events are not yet supported');
+  }
+
+  if (component.options?.slots) {
+    throw new Error('slots are not yet supported');
+  }
+
   for (const [key, value] of Object.entries(component.options?.props || {})) {
     webComponent[key] = value
   }
 
   return webComponent;
 }
+
+window.playwrightUpdate = async (rootElement, component) => {
+  throw new Error('component.update() is not yet supported');
+};
 
 window.playwrightUnmount = async rootElement => {
   rootElement.replaceChildren();
