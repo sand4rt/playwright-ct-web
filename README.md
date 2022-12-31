@@ -33,12 +33,9 @@ import { customElement, property } from 'lit/decorators.js';
 
 
 @customElement('pw-button')
-export default class Button extends LitElement {
-  @property({ type: String, })
-  title = '';
-
+export class Button extends LitElement {
   render() {
-    return html`<button>Submit ${this.title}</button>`
+    return html`<button>Submit</button>`
   }
 }
 ```
@@ -46,14 +43,10 @@ export default class Button extends LitElement {
 ```jsx
 // Button.test.ts
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import Button from './components/Button';
+import { Button } from './components/Button';
 
 test('render props', async ({ mount }) => {
-  const component = await mount(Button, {
-    props: {
-      title: 'Submit'
-    }
-  });
+  const component = await mount(Button);
   await expect(component).toContainText('Submit');
 });
 ```

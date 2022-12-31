@@ -8,7 +8,7 @@ import { Component } from './components/Component';
 import { EmptyTemplate } from './components/EmptyTemplate';
 import type { HooksConfig } from '../playwright';
 
-test('render props', async ({ mount }) => {
+test.fixme('render props', async ({ mount }) => {
   const component = await mount(Button, {
     props: {
       title: 'Submit',

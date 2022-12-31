@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators';
+import { customElement } from 'lit/decorators.js';
 
 @customElement('pw-counter')
 export class Counter extends LitElement {

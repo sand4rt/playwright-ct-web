@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators';
+import { customElement, property } from 'lit/decorators.js';
 
 @customElement('pw-button')
 export class Button extends LitElement {
@@ -7,6 +7,6 @@ export class Button extends LitElement {
   title = '';
 
   render() {
-    return html`<button>Submit ${this.title}</button>`;
+    return html`<button>${this.title}</button>`;
   }
 }
