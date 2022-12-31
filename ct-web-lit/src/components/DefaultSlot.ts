@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators';
 
 @customElement('pw-default-slot')
 export class DefaultSlot extends LitElement {

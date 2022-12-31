@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators';
 
 @customElement('pw-multi-root')
 export class MultiRoot extends LitElement {
