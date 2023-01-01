@@ -34,7 +34,7 @@ import { customElement, property } from 'lit/decorators.js';
 @customElement('pw-button')
 export class Button extends LitElement {
   @property({ type: String })
-  title = '';
+  title!: string;
 
   render() {
     return html`<button>${this.title}</button>`;
