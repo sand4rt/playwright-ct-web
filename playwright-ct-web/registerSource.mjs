@@ -72,7 +72,7 @@ function updateSlots(webComponent, slots = {}) {
       }
 
       slotElement['slot'] = key;
-      webComponent.appendChild(fragment.firstChild);
+      webComponent.appendChild(slotElement);
     });
   }
 }
