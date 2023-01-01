@@ -54,7 +54,7 @@ test.fixme('update slots without remounting', async ({ mount }) => {
   await expect(component).toContainText('Default Slot');
 
   await component.update({
-    slots: { main: 'Test Slot' },
+    slots: { main: '<div>Test Slot</div>' },
   });
   await expect(component).not.toContainText('Default Slot');
   await expect(component).toContainText('Test Slot');
@@ -107,12 +107,12 @@ test('render a component with multiple slots', async ({ mount }) => {
   await expect(component.getByTestId('two')).toContainText('Two');
 });
 
-test.fixme('render a component with a named slot', async ({ mount }) => {
+test('render a component with a named slot', async ({ mount }) => {
   const component = await mount(NamedSlots, {
     slots: {
-      header: 'Header',
-      main: 'Main Content',
-      footer: 'Footer',
+      header: '<div slot="header">Header<div>', // slot="" is optional
+      main: '<div>Main Content<div>',
+      footer: '<div>Footer</div>',
     },
   });
   await expect(component).toContainText('Header');

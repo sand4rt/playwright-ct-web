@@ -16,6 +16,25 @@ export function register(components) {
 }
 
 /**
+ * @param {ChildNode} webComponent 
+ */
+function updateProps(webComponent, props = {}) {
+  for (const [key, value] of Object.entries(props))
+    webComponent[key] = value;
+}
+
+/**
+ * @param {ChildNode} webComponent 
+ */
+function updateEvents(webComponent, events = {}) {
+  for (const [key, listener] of Object.entries(events)) {
+    webComponent.addEventListener(key, event =>
+      listener(/** @type {CustomEvent} */ (event).detail)
+    );
+  }
+}
+
+/**
  * @param {string} html
  * @return {DocumentFragment}
  */
@@ -24,16 +43,38 @@ function stringToHtml(html) {
 }
 
 /**
- * @param {string | string[]} slot
+ * @param {ChildNode} webComponent 
  */
-function createSlots(slot) {
-  if (typeof slot === 'string')
-    return [stringToHtml(slot)];
+function updateSlots(webComponent, slots = {}) {
+  for (const [key, value] of Object.entries(slots)) {
+    let slotElements;
+    if (typeof value === 'string')
+      slotElements = [stringToHtml(value)];
+  
+    if (Array.isArray(value))
+      slotElements = value.map(stringToHtml);
+  
+    if (!slotElements)
+      throw new Error(`Invalid slot with the name: \`${key}\` supplied to \`mount()\``);
 
-  if (Array.isArray(slot))
-    return slot.map(stringToHtml);
+    slotElements.forEach((fragment) => {
+      const slotElement = fragment.firstChild;
+      if (!slotElement)
+        throw new Error(`Invalid slot with the name: \`${key}\` supplied to \`mount()\``);
 
-  throw Error(`Invalid slot received.`);
+      if (key === 'default')
+        return webComponent.appendChild(slotElement);
+
+      if (slotElement?.nodeName === '#text') {
+        throw new Error(
+          `Invalid slot with the name: \`${key}\` supplied to \`mount()\`, expected an HTMLElement but received a text node.`
+        );
+      }
+
+      slotElement['slot'] = key;
+      webComponent.appendChild(fragment.firstChild);
+    });
+  }
 }
 
 /**
@@ -62,22 +103,9 @@ function createComponent(component) {
     throw new Error('JSX mount notation is not supported');
 
   const webComponent = new Component();
-
-  for (const [key, value] of Object.entries(component.options?.props || {}))
-    webComponent[key] = value;
-
-  for (const [key, listener] of Object.entries(component.options?.on || {}))
-    webComponent.addEventListener(key, event => listener(/** @type {CustomEvent} */ (event).detail));
-
-  for (const [key, value] of Object.entries(component.options?.slots || {})) {
-    if (key !== 'default')
-      throw new Error('named slots are not yet supported');
-    
-    createSlots(value).forEach(slot => {
-      webComponent.appendChild(slot);
-    })
-  }
-
+  updateProps(webComponent, component.options?.props);
+  updateSlots(webComponent, component.options?.slots);
+  updateEvents(webComponent, component.options?.on);
   return webComponent;
 }
 
@@ -85,18 +113,15 @@ window.playwrightUpdate = async (rootElement, component) => {
   if (component.kind === 'jsx')
     throw new Error('JSX mount notation is not supported');
 
+  const webComponent = rootElement.firstChild;
+  if (!webComponent) throw new Error('Component was not mounted');
+
   if (component.options?.slots)
-    throw new Error('slots in component.update() is not yet supported');
+    throw new Error('Slots in component.update() is not yet supported');
 
-  const wrapper = rootElement.firstChild;
-  if (!wrapper)
-    throw new Error('Component was not mounted');
-
-  for (const [key, value] of Object.entries(component.options?.props || {}))
-    wrapper[key] = value;
-
-  for (const [key, listener] of Object.entries(component.options?.on || {}))
-    wrapper.addEventListener(key, event => listener(/** @type {CustomEvent} */ (event).detail));
+  updateProps(webComponent, component.options?.props);
+  updateSlots(webComponent, component.options?.slots);
+  updateEvents(webComponent, component.options?.on);
 };
 
 window.playwrightUnmount = async (rootElement) => {
@@ -104,11 +129,11 @@ window.playwrightUnmount = async (rootElement) => {
 };
 
 window.playwrightMount = async (component, rootElement, hooksConfig) => {
-  for (const hook of /** @type {any} */ (window).__pw_hooks_before_mount || [])
+  for (const hook of window['__pw_hooks_before_mount'] || [])
     await hook({ hooksConfig });
 
   rootElement.appendChild(createComponent(component));
 
-  for (const hook of /** @type {any} */ (window).__pw_hooks_after_mount || [])
+  for (const hook of window['__pw_hooks_after_mount'] || [])
     await hook({ hooksConfig });
 };
