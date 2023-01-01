@@ -1,12 +1,17 @@
 import { LitElement, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, eventOptions, property } from 'lit/decorators.js';
 
 @customElement('pw-button')
 export class Button extends LitElement {
   @property({ type: String })
   title = '';
 
+  @eventOptions({ passive: true })
+  onClick() { 
+    this.dispatchEvent(new CustomEvent('submit', { detail: 'hello' }));
+  }
+
   render() {
-    return html`<button>${this.title}</button>`;
+    return html`<button @click=${this.onClick}>${this.title}</button>`;
   }
 }

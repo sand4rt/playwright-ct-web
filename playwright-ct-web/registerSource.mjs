@@ -42,8 +42,8 @@ function createComponent(component) {
 
   const webComponent = new Component();
 
-  if (component.options?.on)
-    throw new Error('events are not yet supported');
+  for (const [key, listener] of Object.entries(component.options?.on || {}))
+    webComponent.addEventListener(key, event => listener(/** @type {CustomEvent} */ (event).detail));
 
   if (component.options?.slots)
     throw new Error('slots are not yet supported');

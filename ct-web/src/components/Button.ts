@@ -1,12 +1,17 @@
 export class Button extends HTMLElement {
+  constructor() {
+    super();
+    this.innerHTML = `<button>${this.title}</button>`;
+  }
+
   set title(title: string) {
     this.innerHTML = `<button>${title}</button>`
   }
 
-  constructor() {
-    super();
-
-    this.innerHTML = `<button>${this.title}</button>`;
+  connectedCallback() {
+    this.addEventListener("click", () => {
+      this.dispatchEvent(new CustomEvent('submit', { detail: 'hello' }));
+    });
   }
 }
 

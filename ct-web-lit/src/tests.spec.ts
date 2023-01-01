@@ -62,7 +62,7 @@ test.fixme('update slots without remounting', async ({ mount }) => {
   await expect(component.locator('#remount-count')).toContainText('1');
 });
 
-test.fixme('emit an submit event when the button is clicked', async ({ mount }) => {
+test('emit an submit event when the button is clicked', async ({ mount }) => {
   const messages: string[] = [];
   const component = await mount(Button, {
     props: {
