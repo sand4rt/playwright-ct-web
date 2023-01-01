@@ -16,6 +16,27 @@ export function register(components) {
 }
 
 /**
+ * @param {string} html
+ * @return {DocumentFragment}
+ */
+function stringToHtml(html) {
+  return document.createRange().createContextualFragment(html);
+}
+
+/**
+ * @param {string | string[]} slot
+ */
+function createSlots(slot) {
+  if (typeof slot === 'string')
+    return [stringToHtml(slot)];
+
+  if (Array.isArray(slot))
+    return slot.map(stringToHtml);
+
+  throw Error(`Invalid slot received.`);
+}
+
+/**
  * @param {Component} component
  */
 function createComponent(component) {
@@ -46,12 +67,12 @@ function createComponent(component) {
     webComponent.addEventListener(key, event => listener(/** @type {CustomEvent} */ (event).detail));
 
   for (const [key, value] of Object.entries(component.options?.slots || {})) {
-    const slot = document.createRange().createContextualFragment(value);
-
     if (key !== 'default')
       throw new Error('named slots are not yet supported');
     
-    webComponent.appendChild(slot);
+    createSlots(value).forEach(slot => {
+      webComponent.appendChild(slot);
+    })
   }
 
   for (const [key, value] of Object.entries(component.options?.props || {}))

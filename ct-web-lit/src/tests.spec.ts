@@ -94,7 +94,7 @@ test.fixme('render a component as slot', async ({ mount }) => {
   await expect(component).toContainText('Submit');
 });
 
-test.fixme('render a component with multiple slots', async ({ mount }) => {
+test('render a component with multiple slots', async ({ mount }) => {
   const component = await mount(DefaultSlot, {
     slots: {
       default: [
