@@ -88,7 +88,7 @@ test('render a default slot', async ({ mount }) => {
 test.fixme('render a component as slot', async ({ mount }) => {
   const component = await mount(DefaultSlot, {
     slots: {
-      default: '<Button title="Submit" />',
+      default: '<pw-button title="Submit" />', // component is registered globally in /playwright/index.ts
     },
   });
   await expect(component).toContainText('Submit');
