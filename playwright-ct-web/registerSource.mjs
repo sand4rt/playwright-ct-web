@@ -57,13 +57,15 @@ function updateSlots(webComponent, slots = {}) {
     if (!slotElements)
       throw new Error(`Invalid slot with the name: \`${key}\` supplied to \`mount()\`, expected an \`string | string[]\``);
 
-    slotElements.forEach((fragment) => {
+    for (const fragment of slotElements) {
       const slotElement = fragment.firstChild;
       if (!slotElement)
         throw new Error(`Invalid slot with the name: \`${key}\` supplied to \`mount()\``);
 
-      if (key === 'default')
-        return webComponent.appendChild(slotElement);
+      if (key === 'default') {
+        webComponent.appendChild(slotElement);
+        continue;
+      }
 
       if (slotElement?.nodeName === '#text') {
         throw new Error(
@@ -73,7 +75,7 @@ function updateSlots(webComponent, slots = {}) {
 
       slotElement['slot'] = key;
       webComponent.appendChild(slotElement);
-    });
+    }
   }
 }
 
