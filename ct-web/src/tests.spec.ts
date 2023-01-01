@@ -76,7 +76,7 @@ test('emit an submit event when the button is clicked', async ({ mount }) => {
   expect(messages).toEqual(['hello']);
 });
 
-test.fixme('render a default slot', async ({ mount }) => {
+test('render a default slot', async ({ mount }) => {
   const component = await mount(DefaultSlot, {
     slots: {
       default: '<strong>Main Content</strong>',

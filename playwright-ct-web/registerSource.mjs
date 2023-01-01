@@ -45,8 +45,14 @@ function createComponent(component) {
   for (const [key, listener] of Object.entries(component.options?.on || {}))
     webComponent.addEventListener(key, event => listener(/** @type {CustomEvent} */ (event).detail));
 
-  if (component.options?.slots)
-    throw new Error('slots are not yet supported');
+  for (const [key, value] of Object.entries(component.options?.slots || {})) {
+    const slot = document.createRange().createContextualFragment(value);
+
+    if (key !== 'default')
+      throw new Error('named slots are not yet supported');
+    
+    webComponent.appendChild(slot);
+  }
 
   for (const [key, value] of Object.entries(component.options?.props || {}))
     webComponent[key] = value;
