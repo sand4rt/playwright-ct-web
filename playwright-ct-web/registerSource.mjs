@@ -55,7 +55,7 @@ function updateSlots(webComponent, slots = {}) {
       slotElements = value.map(stringToHtml);
   
     if (!slotElements)
-      throw new Error(`Invalid slot with the name: \`${key}\` supplied to \`mount()\``);
+      throw new Error(`Invalid slot with the name: \`${key}\` supplied to \`mount()\`, expected an \`string | string[]\``);
 
     slotElements.forEach((fragment) => {
       const slotElement = fragment.firstChild;
@@ -67,7 +67,7 @@ function updateSlots(webComponent, slots = {}) {
 
       if (slotElement?.nodeName === '#text') {
         throw new Error(
-          `Invalid slot with the name: \`${key}\` supplied to \`mount()\`, expected an HTMLElement but received a text node.`
+          `Invalid slot with the name: \`${key}\` supplied to \`mount()\`, expected an \`HTMLElement\` but received a \`TextNode\`.`
         );
       }
 
