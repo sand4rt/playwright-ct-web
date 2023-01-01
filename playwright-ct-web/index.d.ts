@@ -58,7 +58,7 @@ interface MountResult<
 export interface ComponentFixtures {
   mount<HooksConfig extends JsonObject>(
     component: new (...args: any[]) => HTMLElement, options?: MountOptions
-  ): Promise<MountResult>;
+  ): Promise<MountResult<any>>;
 }
 
 export const test: TestType<
