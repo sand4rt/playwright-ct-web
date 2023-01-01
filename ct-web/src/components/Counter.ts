@@ -1,7 +1,7 @@
 let remountCount = 0 
 
 export class Counter extends HTMLElement {
-  set count(count: string) {
+  set count(count: number) {
     this.innerHTML = `
       <div>
         <div id="props">${count}</div>

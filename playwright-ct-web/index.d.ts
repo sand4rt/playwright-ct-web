@@ -39,26 +39,28 @@ type JsonValue = JsonPrimitive | JsonObject | JsonArray;
 type JsonArray = JsonValue[];
 type JsonObject = { [Key in string]?: JsonValue };
 
+// TODO: get props, probably by filter readonly and function types?
+type ComponentProps<Component extends HTMLElement> = Partial<Component>;
+
 type Slot = string | string[];
 
-export interface MountOptions {
-  props?: Props;
+export interface MountOptions<HooksConfig extends JsonObject, Component extends HTMLElement> {
+  props?: ComponentProps<Component>;
   slots?: Record<string, Slot> & { default?: Slot };
   on?: Record<string, Function>;
   hooksConfig?: HooksConfig;
 }
 
-interface MountResult<
-  Props extends Record<string, unknown>
-> extends Locator {
+interface MountResult<Component extends HTMLElement> extends Locator {
   unmount(): Promise<void>;
-  update(options: Omit<MountOptions<never, Props>, 'hooksConfig'>): Promise<void>;
+  update(options: Omit<MountOptions<never, Component>, 'hooksConfig'>): Promise<void>;
 }
 
 export interface ComponentFixtures {
-  mount<HooksConfig extends JsonObject>(
-    component: new (...args: any[]) => HTMLElement, options?: MountOptions
-  ): Promise<MountResult<any>>;
+  mount<HooksConfig extends JsonObject, Component extends HTMLElement = HTMLElement>(
+    component: new (...args: any[]) => Component,
+    options?: MountOptions<HooksConfig, Component>
+  ): Promise<MountResult<Component>>;
 }
 
 export const test: TestType<
