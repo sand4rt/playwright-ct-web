@@ -1,7 +1,7 @@
 export class EmptyTemplate extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = '<template></template>'
+    this.innerHTML = '<template></template>';
   }
 }
 

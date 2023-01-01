@@ -7,7 +7,7 @@ export class Button extends LitElement {
   title = '';
 
   @eventOptions({ passive: true })
-  onClick() { 
+  onClick() {
     this.dispatchEvent(new CustomEvent('submit', { detail: 'hello' }));
   }
 

@@ -5,11 +5,11 @@ export class Button extends HTMLElement {
   }
 
   set title(title: string) {
-    this.innerHTML = `<button>${title}</button>`
+    this.innerHTML = `<button>${title}</button>`;
   }
 
   connectedCallback() {
-    this.addEventListener("click", () => {
+    this.addEventListener('click', () => {
       this.dispatchEvent(new CustomEvent('submit', { detail: 'hello' }));
     });
   }

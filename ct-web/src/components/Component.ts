@@ -1,7 +1,7 @@
 export class Component extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `<div>test</div>`
+    this.innerHTML = `<div>test</div>`;
   }
 }
 
