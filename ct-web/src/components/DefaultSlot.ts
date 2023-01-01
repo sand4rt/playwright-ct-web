@@ -1,7 +1,8 @@
 export class DefaultSlot extends HTMLElement {
-  constructor() {
-    super();
-    this.innerHTML = `
+  connectedCallback() {
+    this.attachShadow({ mode: 'open' });
+    if (!this.shadowRoot) return;
+    this.shadowRoot.innerHTML = `
       <div>
         <h1>Welcome!</h1>
         <main><slot /></main>
