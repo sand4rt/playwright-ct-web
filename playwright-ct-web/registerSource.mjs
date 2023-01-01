@@ -63,6 +63,9 @@ function createComponent(component) {
 
   const webComponent = new Component();
 
+  for (const [key, value] of Object.entries(component.options?.props || {}))
+    webComponent[key] = value;
+
   for (const [key, listener] of Object.entries(component.options?.on || {}))
     webComponent.addEventListener(key, event => listener(/** @type {CustomEvent} */ (event).detail));
 
@@ -75,14 +78,25 @@ function createComponent(component) {
     })
   }
 
-  for (const [key, value] of Object.entries(component.options?.props || {}))
-    webComponent[key] = value;
-
   return webComponent;
 }
 
 window.playwrightUpdate = async (rootElement, component) => {
-  throw new Error('component.update() is not yet supported');
+  if (component.kind === 'jsx')
+    throw new Error('JSX mount notation is not supported');
+
+  if (component.options?.slots)
+    throw new Error('slots in component.update() is not yet supported');
+
+  const wrapper = rootElement.firstChild;
+  if (!wrapper)
+    throw new Error('Component was not mounted');
+
+  for (const [key, value] of Object.entries(component.options?.props || {}))
+    wrapper[key] = value;
+
+  for (const [key, listener] of Object.entries(component.options?.on || {}))
+    wrapper.addEventListener(key, event => listener(/** @type {CustomEvent} */ (event).detail));
 };
 
 window.playwrightUnmount = async (rootElement) => {

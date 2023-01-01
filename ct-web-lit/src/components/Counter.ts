@@ -1,30 +1,31 @@
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, eventOptions, property } from 'lit/decorators.js';
+
+let remountCount = 0 
 
 @customElement('pw-counter')
 export class Counter extends LitElement {
+  @property({ type: Number })
+  count!: number;
+
+  constructor() {
+    super();
+    remountCount++;
+  }
+
+  @eventOptions({ passive: true })
+  onClick() {
+    this.dispatchEvent(new CustomEvent('submit', { detail: 'hello' }));
+  }
+  
   render() {
-    return html``;
+    return html`
+      <div  @click=${this.onClick}>
+        <div id="props">${this.count}</div>
+        <div id="remount-count">${remountCount}</div>
+        <slot name="main" />
+        <slot />
+      </div>
+    `;
   }
 }
-
-// Example vue implementation:
-
-// <template>
-//   <div @click="$emit('submit', 'hello')">
-//     <div id="props">{{ count }}</div>
-//     <div id="remount-count">{{ remountCount }}</div>
-//     <slot name="main" />
-//     <slot />
-//   </div>
-// </template>
-
-// <script lang="ts">
-// let remountCount = 0
-// </script>
-
-// <script lang="ts" setup>
-// defineProps<{ count?: number }>()
-
-// remountCount++
-// </script>
