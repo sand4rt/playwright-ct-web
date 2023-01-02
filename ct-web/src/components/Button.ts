@@ -1,18 +1,16 @@
 export class Button extends HTMLElement {
-  _title!: string;
+  static _title: string;
 
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
-    this.render();
   }
 
-  set title(title: string) {
+  static set title(title: string) {
     this._title = title;
-    this.render();
   }
 
-  get title() {
+  static get title() {
     return this._title;
   }
 
@@ -20,10 +18,12 @@ export class Button extends HTMLElement {
     this.addEventListener('click', () => {
       this.dispatchEvent(new CustomEvent('submit', { detail: 'hello' }));
     });
+    this.render();
   }
 
   render() {
-    if (!this.shadowRoot) return;
+    if (!this.shadowRoot)
+      return;
     this.shadowRoot.innerHTML = `<button>${this.title}</button>`;
   }
 }

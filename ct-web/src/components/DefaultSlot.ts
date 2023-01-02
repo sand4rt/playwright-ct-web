@@ -5,7 +5,8 @@ export class DefaultSlot extends HTMLElement {
   }
 
   render() {
-    if (!this.shadowRoot) return;
+    if (!this.shadowRoot)
+      return;
     this.shadowRoot.innerHTML = `
       <div>
         <h1>Welcome!</h1>

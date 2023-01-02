@@ -6,7 +6,8 @@ export class Component extends HTMLElement {
   }
 
   render() {
-    if (!this.shadowRoot) return;
+    if (!this.shadowRoot)
+      return;
     this.shadowRoot.innerHTML = `<div>test</div>`;
   }
 }

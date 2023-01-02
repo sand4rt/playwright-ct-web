@@ -6,7 +6,8 @@ export class EmptyTemplate extends HTMLElement {
   }
 
   render() {
-    if (!this.shadowRoot) return;
+    if (!this.shadowRoot)
+      return;
     this.shadowRoot.innerHTML = '<template></template>';
   }
 }

@@ -6,7 +6,8 @@ export class MultiRoot extends HTMLElement {
   }
 
   render() {
-    if (!this.shadowRoot) return;
+    if (!this.shadowRoot)
+      return;
     this.shadowRoot.innerHTML = `
       <div>root 1</div>
       <div>root 2</div>

@@ -16,13 +16,13 @@ export class Counter extends HTMLElement {
     super();
     remountCount++;  
     this.attachShadow({ mode: 'open' });
-    this.render();
   }
 
   connectedCallback() {
     this.addEventListener('click', () => {
       this.dispatchEvent(new CustomEvent('submit', { detail: 'hello' }));
     });
+    this.render();
   }
 
   render() {
