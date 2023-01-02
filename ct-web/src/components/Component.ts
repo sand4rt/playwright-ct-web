@@ -1,7 +1,13 @@
 export class Component extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `<div>test</div>`;
+    this.attachShadow({ mode: 'open' });
+    this.render();
+  }
+
+  render() {
+    if (!this.shadowRoot) return;
+    this.shadowRoot.innerHTML = `<div>test</div>`;
   }
 }
 

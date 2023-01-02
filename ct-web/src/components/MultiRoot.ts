@@ -1,7 +1,13 @@
 export class MultiRoot extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = `
+    this.attachShadow({ mode: 'open' });
+    this.render();
+  }
+
+  render() {
+    if (!this.shadowRoot) return;
+    this.shadowRoot.innerHTML = `
       <div>root 1</div>
       <div>root 2</div>
     `;

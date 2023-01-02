@@ -1,7 +1,13 @@
 export class EmptyTemplate extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = '<template></template>';
+    this.attachShadow({ mode: 'open' });
+    this.render();
+  }
+
+  render() {
+    if (!this.shadowRoot) return;
+    this.shadowRoot.innerHTML = '<template></template>';
   }
 }
 
