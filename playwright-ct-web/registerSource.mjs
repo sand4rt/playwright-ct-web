@@ -43,7 +43,7 @@ function stringToHtml(html) {
 }
 
 /**
- * @param {ChildNode} webComponent 
+ * @param {HTMLElement} webComponent 
  */
 function updateSlots(webComponent, slots = {}) {
   for (const [key, value] of Object.entries(slots)) {
@@ -115,11 +115,8 @@ window.playwrightUpdate = async (rootElement, component) => {
   if (component.kind === 'jsx')
     throw new Error('JSX mount notation is not supported');
 
-  const webComponent = rootElement.firstChild;
+  const webComponent = /** @type {?HTMLElement} */ (rootElement.firstChild);
   if (!webComponent) throw new Error('Component was not mounted');
-
-  if (component.options?.slots)
-    throw new Error('Slots in component.update() is not yet supported');
 
   updateProps(webComponent, component.options?.props);
   updateSlots(webComponent, component.options?.slots);

@@ -47,7 +47,7 @@ test('update event listeners without remounting', async ({ mount }) => {
   await expect(component.locator('#remount-count')).toContainText('1');
 });
 
-test.fixme('update slots without remounting', async ({ mount }) => {
+test('update slots without remounting', async ({ mount }) => {
   const component = await mount(Counter, {
     slots: { default: 'Default Slot' },
   });
@@ -56,7 +56,7 @@ test.fixme('update slots without remounting', async ({ mount }) => {
   await component.update({
     slots: { main: '<div>Test Slot<div>' },
   });
-  await expect(component).not.toContainText('Default Slot');
+  await expect(component).toContainText('Default Slot');
   await expect(component).toContainText('Test Slot');
 
   await expect(component.locator('#remount-count')).toContainText('1');
