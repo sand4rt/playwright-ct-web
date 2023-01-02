@@ -16,7 +16,7 @@ export function register(components) {
 }
 
 /**
- * @param {ChildNode} webComponent 
+ * @param {HTMLElement} webComponent 
  */
 function updateProps(webComponent, props = {}) {
   for (const [key, value] of Object.entries(props))
@@ -24,7 +24,7 @@ function updateProps(webComponent, props = {}) {
 }
 
 /**
- * @param {ChildNode} webComponent 
+ * @param {HTMLElement} webComponent 
  */
 function updateEvents(webComponent, events = {}) {
   for (const [key, listener] of Object.entries(events)) {
