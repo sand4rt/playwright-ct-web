@@ -39,15 +39,14 @@ type JsonValue = JsonPrimitive | JsonObject | JsonArray;
 type JsonArray = JsonValue[];
 type JsonObject = { [Key in string]?: JsonValue };
 
-type ConditionalKeys<Base, Condition> = NonNullable<{[Key in keyof Base]: Base[Key] extends Condition ? Key : never; }[keyof Base]>;
-type ConditionalPick<Base, Condition> = Pick<Base, ConditionalKeys<Base, Condition>>;
+type PickByValue<T, ValueType> = Pick<T, { [Key in keyof T]-?: T[Key] extends ValueType ? Key : never }[keyof T]>;
 
 type IfEquals<X, Y, A, B> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T extends Y ? 1 : 2) ? A : B;
 type WritableKeysOf<T> = {[P in keyof T]: IfEquals<{ [Q in P]: T[P] }, { -readonly [Q in P]: T[P] }, P, never>}[keyof T];
 type WritablePart<T> = Pick<T, WritableKeysOf<T>>;
 
 // TODO: get props, probably by filter readonly and function types?
-type ComponentProps<Component extends HTMLElement> = Partial<WritablePart<ConditionalPick<Component, JsonPrimitive>>>;
+type ComponentProps<Component extends HTMLElement> = Partial<WritablePart<PickByValue<Component, JsonPrimitive>>>;
 
 type Slot = string | string[];
 
