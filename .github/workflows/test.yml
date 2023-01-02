@@ -18,6 +18,8 @@ jobs:
           node-version: '16.x'
       - name: Install dependencies
         run: pnpm install
+      - name: Build packages
+        run: pnpm build 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
