@@ -36,10 +36,10 @@ function updateEvents(webComponent, events = {}) {
 
 /**
  * @param {string} html
- * @return {DocumentFragment}
+ * @return {?HTMLElement}
  */
 function stringToHtml(html) {
-  return document.createRange().createContextualFragment(html);
+  return /** @type {?HTMLElement} */ (document.createRange().createContextualFragment(html).firstChild);
 }
 
 /**
@@ -55,25 +55,24 @@ function updateSlots(webComponent, slots = {}) {
       slotElements = value.map(stringToHtml);
   
     if (!slotElements)
-      throw new Error(`Invalid slot with the name: \`${key}\` supplied to \`mount()\`, expected an \`string | string[]\``);
+      throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\`, expected \`string | string[]\``);
 
-    for (const fragment of slotElements) {
-      const slotElement = fragment.firstChild;
+    for (const slotElement of slotElements) {
       if (!slotElement)
-        throw new Error(`Invalid slot with the name: \`${key}\` supplied to \`mount()\``);
+        throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\``);
 
       if (key === 'default') {
         webComponent.appendChild(slotElement);
         continue;
       }
 
-      if (slotElement?.nodeName === '#text') {
+      if (slotElement.nodeName === '#text') {
         throw new Error(
-          `Invalid slot with the name: \`${key}\` supplied to \`mount()\`, expected an \`HTMLElement\` but received a \`TextNode\`.`
+          `Invalid slot with name: \`${key}\` supplied to \`mount()\`, expected \`HTMLElement\` but received \`TextNode\`.`
         );
       }
 
-      slotElement['slot'] = key;
+      slotElement.slot = key;
       webComponent.appendChild(slotElement);
     }
   }
