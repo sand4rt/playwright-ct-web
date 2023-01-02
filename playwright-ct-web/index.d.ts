@@ -39,8 +39,11 @@ type JsonValue = JsonPrimitive | JsonObject | JsonArray;
 type JsonArray = JsonValue[];
 type JsonObject = { [Key in string]?: JsonValue };
 
+type ConditionalKeys<Base, Condition> = NonNullable<{[Key in keyof Base]: Base[Key] extends Condition ? Key : never; }[keyof Base]>;
+type ConditionalPick<Base, Condition> = Pick<Base, ConditionalKeys<Base, Condition>>;
+
 // TODO: get props, probably by filter readonly and function types?
-type ComponentProps<Component extends HTMLElement> = Partial<Component>;
+type ComponentProps<Component extends HTMLElement> = Partial<ConditionalPick<Component, JsonPrimitive>>;
 
 type Slot = string | string[];
 
