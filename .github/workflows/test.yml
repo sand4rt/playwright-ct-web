@@ -18,29 +18,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-          
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-          
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
 
-      - uses: actions/cache@v3
-        name: Setup playwright cache
-        id: playwright-cache
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-1.29.1
-            
       - name: Install dependencies
         run: pnpm install
         
@@ -48,7 +26,6 @@ jobs:
         run: pnpm build 
         
       - name: Install Playwright Browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
         
       - name: Run Playwright tests
