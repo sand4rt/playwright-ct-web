@@ -48,10 +48,10 @@ jobs:
         run: pnpm build 
         
       - name: Install Playwright Browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
         
       - name: Run Playwright tests
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: pnpm test
         
       - uses: actions/upload-artifact@v3
