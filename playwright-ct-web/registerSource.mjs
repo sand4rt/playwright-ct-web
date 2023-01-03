@@ -6,6 +6,7 @@
 
 /** @type {Map<string, FrameworkComponent>} */
 const registry = new Map();
+const listeners = new Map();
 
 /**
  * @param {{[key: string]: FrameworkComponent}} components
@@ -26,11 +27,21 @@ function updateProps(webComponent, props = {}) {
 /**
  * @param {HTMLElement} webComponent 
  */
+function removeEvents(webComponent, events = {}) {
+  for (const [key] of Object.entries(events)) {
+    webComponent.removeEventListener(key, listeners.get(key));
+    listeners.delete(key)
+  }
+}
+
+/**
+ * @param {HTMLElement} webComponent 
+ */
 function updateEvents(webComponent, events = {}) {
   for (const [key, listener] of Object.entries(events)) {
-    webComponent.addEventListener(key, event =>
-      listener(/** @type {CustomEvent} */ (event).detail)
-    );
+    const fn = event => listener(/** @type {CustomEvent} */ (event).detail);
+    webComponent.addEventListener(key, fn)
+    listeners.set(key, fn)
   }
 }
 
@@ -81,7 +92,7 @@ function updateSlots(webComponent, slots = {}) {
 /**
  * @param {Component} component
  */
-function createComponent(component) {
+function getComponent(component) {
   let Component = registry.get(component.type);
   if (!Component) {
     // Lookup by shorthand.
@@ -100,15 +111,28 @@ function createComponent(component) {
       }. Following components are registered: ${[...registry.keys()]}`
     );
 
+  return Component;
+}
+
+window.playwrightMount = async (component, rootElement, hooksConfig) => {
   if (component.kind !== 'object')
     throw new Error('JSX mount notation is not supported');
 
+  const Component = getComponent(component);
+  
   const webComponent = new Component();
   updateProps(webComponent, component.options?.props);
   updateSlots(webComponent, component.options?.slots);
   updateEvents(webComponent, component.options?.on);
-  return webComponent;
-}
+
+  for (const hook of window['__pw_hooks_before_mount'] || [])
+    await hook({ hooksConfig });
+
+  rootElement.appendChild(webComponent);
+
+  for (const hook of window['__pw_hooks_after_mount'] || [])
+    await hook({ hooksConfig });
+};
 
 window.playwrightUpdate = async (rootElement, component) => {
   if (component.kind === 'jsx')
@@ -119,19 +143,10 @@ window.playwrightUpdate = async (rootElement, component) => {
 
   updateProps(webComponent, component.options?.props);
   updateSlots(webComponent, component.options?.slots);
+  removeEvents(webComponent, component.options?.on);
   updateEvents(webComponent, component.options?.on);
 };
 
 window.playwrightUnmount = async (rootElement) => {
   rootElement.replaceChildren();
-};
-
-window.playwrightMount = async (component, rootElement, hooksConfig) => {
-  for (const hook of window['__pw_hooks_before_mount'] || [])
-    await hook({ hooksConfig });
-
-  rootElement.appendChild(createComponent(component));
-
-  for (const hook of window['__pw_hooks_after_mount'] || [])
-    await hook({ hooksConfig });
 };

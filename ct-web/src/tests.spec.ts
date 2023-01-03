@@ -33,9 +33,13 @@ test('update props without remounting', async ({ mount }) => {
 });
 
 test('update event listeners without remounting', async ({ mount }) => {
-  const component = await mount(Counter);
-
   const messages: string[] = [];
+  const component = await mount(Counter, {
+    on: {
+      submit: (data: string) => messages.push(data),
+    },
+  });
+
   await component.update({
     on: {
       submit: (data: string) => messages.push(data),
