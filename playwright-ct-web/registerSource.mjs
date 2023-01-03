@@ -17,7 +17,7 @@ export function register(components) {
 }
 
 /**
- * @param {HTMLElement} webComponent 
+ * @param {HTMLElement} webComponent
  */
 function updateProps(webComponent, props = {}) {
   for (const [key, value] of Object.entries(props))
@@ -25,23 +25,23 @@ function updateProps(webComponent, props = {}) {
 }
 
 /**
- * @param {HTMLElement} webComponent 
+ * @param {HTMLElement} webComponent
  */
 function removeEvents(webComponent, events = {}) {
   for (const [key] of Object.entries(events)) {
     webComponent.removeEventListener(key, listeners.get(key));
-    listeners.delete(key)
+    listeners.delete(key);
   }
 }
 
 /**
- * @param {HTMLElement} webComponent 
+ * @param {HTMLElement} webComponent
  */
 function updateEvents(webComponent, events = {}) {
   for (const [key, listener] of Object.entries(events)) {
     const fn = event => listener(/** @type {CustomEvent} */ (event).detail);
-    webComponent.addEventListener(key, fn)
-    listeners.set(key, fn)
+    webComponent.addEventListener(key, fn);
+    listeners.set(key, fn);
   }
 }
 
@@ -50,21 +50,26 @@ function updateEvents(webComponent, events = {}) {
  * @return {?HTMLElement}
  */
 function stringToHtml(html) {
-  return /** @type {?HTMLElement} */ (document.createRange().createContextualFragment(html).firstChild);
+  return /** @type {?HTMLElement} */ (
+    document
+      .createRange()
+      .createContextualFragment(html)
+      .firstChild
+  );
 }
 
 /**
- * @param {HTMLElement} webComponent 
+ * @param {HTMLElement} webComponent
  */
 function updateSlots(webComponent, slots = {}) {
   for (const [key, value] of Object.entries(slots)) {
     let slotElements;
     if (typeof value === 'string')
       slotElements = [stringToHtml(value)];
-  
+
     if (Array.isArray(value))
       slotElements = value.map(stringToHtml);
-  
+
     if (!slotElements)
       throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\`, expected \`string | string[]\``);
 
@@ -92,7 +97,7 @@ function updateSlots(webComponent, slots = {}) {
 /**
  * @param {Component} component
  */
-function getComponent(component) {
+function createComponent(component) {
   let Component = registry.get(component.type);
   if (!Component) {
     // Lookup by shorthand.
@@ -111,16 +116,14 @@ function getComponent(component) {
       }. Following components are registered: ${[...registry.keys()]}`
     );
 
-  return Component;
+  return new Component();
 }
 
 window.playwrightMount = async (component, rootElement, hooksConfig) => {
   if (component.kind !== 'object')
     throw new Error('JSX mount notation is not supported');
 
-  const Component = getComponent(component);
-  
-  const webComponent = new Component();
+  const webComponent = createComponent(component);
   updateProps(webComponent, component.options?.props);
   updateSlots(webComponent, component.options?.slots);
   updateEvents(webComponent, component.options?.on);
