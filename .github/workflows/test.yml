@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - uses: actions/cache@v3
-        name: Check if Playwright browser is cached
+        name: Setup playwright cache
         id: playwright-cache
         with:
           path: |
