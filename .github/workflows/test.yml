@@ -12,15 +12,19 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: '7.x'
+          
       - uses: actions/checkout@v3
+      
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+          
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+          
       - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
@@ -28,14 +32,37 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      - uses: actions/cache@v3
+        name: Setup playwright cache
+        id: playwright-cache
+        with:
+          path: '~/.cache/ms-playwright'
+          key: '${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}'
+          # As a fallback, if the Playwright version has changed, try use the
+          # most recently cached version. There's a good chance that at least one
+          # of the browser binary versions haven't been updated, so Playwright can
+          # skip installing that in the next step.
+          # Note: When falling back to an old cache, `cache-hit` (used below)
+          # will be `false`. This allows us to restore the potentially out of
+          # date cache, but still let Playwright decide if it needs to download
+          # new binaries or not.
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+            
       - name: Install dependencies
         run: pnpm install
+        
       - name: Build packages
         run: pnpm build 
+        
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+        
       - name: Run Playwright tests
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: pnpm test
+        
       - uses: actions/upload-artifact@v3
         if: always()
         with:
