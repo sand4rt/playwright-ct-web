@@ -34,21 +34,12 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - uses: actions/cache@v3
-        name: Setup playwright cache
+        name: Check if Playwright browser is cached
         id: playwright-cache
         with:
-          path: '~/.cache/ms-playwright'
-          key: '${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}'
-          # As a fallback, if the Playwright version has changed, try use the
-          # most recently cached version. There's a good chance that at least one
-          # of the browser binary versions haven't been updated, so Playwright can
-          # skip installing that in the next step.
-          # Note: When falling back to an old cache, `cache-hit` (used below)
-          # will be `false`. This allows us to restore the potentially out of
-          # date cache, but still let Playwright decide if it needs to download
-          # new binaries or not.
-          restore-keys: |
-            ${{ runner.os }}-playwright-
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-1.29.1
             
       - name: Install dependencies
         run: pnpm install
