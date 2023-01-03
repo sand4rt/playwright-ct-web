@@ -3,6 +3,13 @@
   "version": "0.0.12",
   "description": "Playwright Component Testing for Web Components",
   "homepage": "https://playwright.dev",
+  repository": {
+    "type": "git",
+    "url": "git+https://github.com/sand4rt/playwright-ct-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sand4rt/playwright-ct-web/issues"
+  },
   "engines": {
     "node": ">=14"
   },
