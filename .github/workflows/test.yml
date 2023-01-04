@@ -20,7 +20,7 @@ jobs:
           node-version: '16.x'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
         
       - name: Build packages
         run: pnpm build 
