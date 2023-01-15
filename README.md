@@ -57,5 +57,5 @@ test('render props', async ({ mount }) => {
 });
 ```
 
-See the offical [playwright component testing documentation](https://playwright.dev/docs/test-components) and the tests for [lit](./ct-web-lit/src/tests.spec.ts) and [native web components](ct-web/src/tests.spec.ts) for more information on how to use it.
+See the offical [playwright component testing documentation](https://playwright.dev/docs/test-components) and the tests for [lit](ct-web-lit/tests) and [native web components](ct-web/tests) for more information on how to use it.
 
