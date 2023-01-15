@@ -33,7 +33,7 @@ test('render a component with multiple slots', async ({ mount }) => {
   await expect(component.getByTestId('two')).toContainText('Two');
 });
 
-test('render a component with a named slot', async ({ mount }) => {
+test('render a component with a named slots', async ({ mount }) => {
   const component = await mount(NamedSlots, {
     slots: {
       header: '<div slot="header">Header<div>', // slot="" is optional
@@ -44,4 +44,22 @@ test('render a component with a named slot', async ({ mount }) => {
   await expect(component).toContainText('Header');
   await expect(component).toContainText('Main Content');
   await expect(component).toContainText('Footer');
+});
+
+test('render number as slot', async ({ mount }) => {
+  const component = await mount(DefaultSlot, {
+    slots: {
+      default: 1337,
+    },
+  });
+  await expect(component).toContainText('1337');
+});
+
+test('render array of numbers as slot', async ({ mount }) => {
+  const component = await mount(DefaultSlot, {
+    slots: {
+      default: [4,2],
+    },
+  });
+  await expect(component).toContainText('42');
 });

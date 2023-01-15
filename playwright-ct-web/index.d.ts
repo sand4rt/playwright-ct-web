@@ -48,7 +48,7 @@ type WritablePart<T> = Pick<T, WritableKeysOf<T>>;
 // TODO: get props, probably by filter readonly and function types?
 type ComponentProps<Component extends HTMLElement> = Partial<WritablePart<PickByValue<Component, JsonPrimitive>>>;
 
-type Slot = string | string[];
+type Slot = number | string | Slot[];
 
 export interface MountOptions<HooksConfig extends JsonObject, Component extends HTMLElement> {
   props?: ComponentProps<Component>;

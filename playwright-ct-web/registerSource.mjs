@@ -46,14 +46,14 @@ function updateEvents(webComponent, events = {}) {
 }
 
 /**
- * @param {string} html
+ * @param {any} value
  * @return {?HTMLElement}
  */
-function stringToHtml(html) {
+function toHtml(value) {
   return /** @type {?HTMLElement} */ (
     document
       .createRange()
-      .createContextualFragment(html)
+      .createContextualFragment(value)
       .firstChild
   );
 }
@@ -64,14 +64,14 @@ function stringToHtml(html) {
 function updateSlots(webComponent, slots = {}) {
   for (const [key, value] of Object.entries(slots)) {
     let slotElements;
-    if (typeof value === 'string')
-      slotElements = [stringToHtml(value)];
+    if (typeof value !== 'object')
+      slotElements = [toHtml(value)];
 
     if (Array.isArray(value))
-      slotElements = value.map(stringToHtml);
+      slotElements = value.map(toHtml);
 
     if (!slotElements)
-      throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\`, expected \`string | string[]\``);
+      throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\``);
 
     for (const slotElement of slotElements) {
       if (!slotElement)
