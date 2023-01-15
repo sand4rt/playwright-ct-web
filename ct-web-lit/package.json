@@ -13,8 +13,8 @@
     "lit": "^2.5.0"
   },
   "devDependencies": {
-    "@sand4rt/experimental-ct-web": "workspace:*",
-    "@playwright/test": "^1.29.1",
+    "@sand4rt/experimental-ct-web": "*",
+    "@playwright/test": "^1.29.2",
     "typescript": "^4.9.4",
     "vite": "^4.0.3"
   }
