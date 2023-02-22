@@ -46,29 +46,16 @@ function updateEvents(webComponent, events = {}) {
 }
 
 /**
- * @param {any} value
- * @return {?HTMLElement}
- */
-function toHtml(value) {
-  return /** @type {?HTMLElement} */ (
-    document
-      .createRange()
-      .createContextualFragment(value)
-      .firstChild
-  );
-}
-
-/**
  * @param {HTMLElement} webComponent
  */
 function updateSlots(webComponent, slots = {}) {
   for (const [key, value] of Object.entries(slots)) {
     let slotElements;
     if (typeof value !== 'object')
-      slotElements = [toHtml(value)];
+      slotElements = [createSlot(value)];
 
     if (Array.isArray(value))
-      slotElements = value.map(toHtml);
+      slotElements = value.map(createSlot);
 
     if (!slotElements)
       throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\``);
@@ -92,6 +79,19 @@ function updateSlots(webComponent, slots = {}) {
       webComponent.appendChild(slotElement);
     }
   }
+}
+
+/**
+ * @param {any} value
+ * @return {?HTMLElement}
+ */
+function createSlot(value) {
+  return /** @type {?HTMLElement} */ (
+    document
+      .createRange()
+      .createContextualFragment(value)
+      .firstChild
+  );
 }
 
 /**

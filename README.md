@@ -15,13 +15,11 @@ npm install -D @sand4rt/experimental-ct-web
 After installing the config needs to be modified:
 
 ```ts
-import { PlaywrightTestConfig } from "@sand4rt/experimental-ct-web";
+import { defineConfig } from "@sand4rt/experimental-ct-web";
 
-const config: PlaywrightTestConfig = {
-  // Your config
-};
-
-export default config;
+export default defineConfig({
+  // ...Your config
+});
 ```
 
 Now you can start adding your first test:
