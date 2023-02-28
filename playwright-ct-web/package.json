@@ -16,7 +16,7 @@
   "author": {
     "name": "sand4rt"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "exports": {
     ".": {
       "types": "./index.d.ts",
