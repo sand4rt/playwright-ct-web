@@ -46,7 +46,7 @@ type WritableKeysOf<T> = {[P in keyof T]: IfEquals<{ [Q in P]: T[P] }, { -readon
 type WritablePart<T> = Pick<T, WritableKeysOf<T>>;
 
 // TODO: get props, probably by filter readonly and function types?
-type ComponentProps<Component extends HTMLElement> = Partial<WritablePart<PickByValue<Component, JsonPrimitive>>>;
+type ComponentProps<Component extends HTMLElement> = Partial<WritablePart<PickByValue<Component, JsonValue>>> & Partial<PickByValue<Component, JsonValue>>;
 
 type Slot = number | string | Slot[];
 
