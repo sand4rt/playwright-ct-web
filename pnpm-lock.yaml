@@ -34,7 +34,7 @@ importers:
 
   playwright-ct-web:
     specifiers:
-      '@playwright/test': ^1.31.1
+      '@playwright/test': ^1.31.0
       vite: ^4.1.4
     devDependencies:
       '@playwright/test': 1.31.1
