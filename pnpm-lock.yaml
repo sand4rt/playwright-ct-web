@@ -34,10 +34,10 @@ importers:
 
   playwright-ct-web:
     specifiers:
-      '@playwright/test': ^1.31.0
+      '@playwright/test': ^1.31.1
       vite: ^4.1.4
     devDependencies:
-      '@playwright/test': 1.31.0
+      '@playwright/test': 1.31.1
       vite: 4.1.4
 
 packages:
@@ -261,6 +261,17 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /@playwright/test/1.31.1:
+    resolution: {integrity: sha512-IsytVZ+0QLDh1Hj83XatGp/GsI1CDJWbyDaBGbainsh0p2zC7F4toUocqowmjS6sQff2NGT3D9WbDj/3K2CJiA==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.11.18
+      playwright-core: 1.31.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
   /@types/node/18.11.18:
     resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
     dev: true
@@ -361,6 +372,12 @@ packages:
 
   /playwright-core/1.31.0:
     resolution: {integrity: sha512-/KquBjS5DcASCh8cGeNVHuC0kyb7c9plKTwaKxgOGtxT7+DZO2fjmFvPDBSXslEIK5CeOO/2kk5rOCktFXKEdA==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
+  /playwright-core/1.31.1:
+    resolution: {integrity: sha512-JTyX4kV3/LXsvpHkLzL2I36aCdml4zeE35x+G5aPc4bkLsiRiQshU5lWeVpHFAuC8xAcbI6FDcw/8z3q2xtJSQ==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
