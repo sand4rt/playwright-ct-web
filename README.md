@@ -50,8 +50,8 @@ import { Button } from './components/Button';
 test('render props', async ({ mount }) => {
   const component = await mount(Button, {
     props: {
-      title: 'Submit'
-    }
+      title: 'Submit',
+    },
   });
   await expect(component).toContainText('Submit');
 });
