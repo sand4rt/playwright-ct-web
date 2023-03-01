@@ -1,6 +1,6 @@
 import { beforeMount, afterMount } from '@sand4rt/experimental-ct-web/hooks';
-import '../src/assets/index.css';
-import '../src/components/Button';
+import '@/assets/index.css';
+import '@/components/Button';
 
 export type HooksConfig = {
   route: string;
