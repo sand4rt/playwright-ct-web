@@ -1,7 +1,7 @@
 # Playwright web component testing
 
 > **Note**
-> Playwright component testing is marked as experimental by the playwright team. 
+> The API has been designed to closely resemble Playwright's API, wherever it is appropriate to do so. This is aimed at facilitating a smooth transition to Playwright once it offers official support for Web components. It is important to take into account that this library will reach end of life when Playwright has official support for Web components. 
 
 ## Usage
 
