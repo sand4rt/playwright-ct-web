@@ -1,7 +1,9 @@
-# Playwright web component testing
+# Playwright Web component testing
 
 > **Note**
-> The API has been designed to closely resemble Playwright's API, wherever it is appropriate to do so. This is aimed at facilitating a smooth transition to Playwright once it offers official support for Web components. It is important to take into account that this library will reach end of life when Playwright has official support for Web components. 
+> The API has been designed to closely resemble Playwright's API wherever applicable. This library is _(without guarantee)_ aimed at facilitating a smooth transition to Playwright once it offers official support for Web components. It is important to take into account that this library will reach end of life when Playwright has official support for Web component testing.
+> 
+> To push for official support, feedback in the form of github issues and or stars are appreciated!
 
 ## Usage
 
@@ -29,7 +31,7 @@ Now you can start adding your first test:
 import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-@customElement('pw-button')
+@customElement('button-component')
 export class Button extends LitElement {
   @property({ type: String })
   title!: string;
