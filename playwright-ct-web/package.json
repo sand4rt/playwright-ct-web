@@ -17,6 +17,17 @@
     "name": "sand4rt"
   },
   "license": "MIT",
+  "keywords": [
+    "testing",
+    "web components",
+    "real browser",
+    "playwright",
+    "unit",
+    "integration",
+    "functional",
+    "end to end",
+    "e2e"
+  ],
   "exports": {
     ".": {
       "types": "./index.d.ts",
