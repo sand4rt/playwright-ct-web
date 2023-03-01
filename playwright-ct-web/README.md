@@ -17,7 +17,7 @@ npm install -D @sand4rt/experimental-ct-web
 After installing the config needs to be modified:
 
 ```ts
-import { defineConfig } from "@sand4rt/experimental-ct-web";
+import { defineConfig } from '@sand4rt/experimental-ct-web';
 
 export default defineConfig({
   // ...Your config
