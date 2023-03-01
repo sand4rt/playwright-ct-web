@@ -17,4 +17,4 @@ export class DefaultSlot extends HTMLElement {
   }
 }
 
-customElements.define('pw-default-slot', DefaultSlot);
+customElements.define('default-slot-component', DefaultSlot);

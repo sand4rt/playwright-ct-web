@@ -12,4 +12,4 @@ export class Component extends HTMLElement {
   }
 }
 
-customElements.define('pw-component', Component);
+customElements.define('component-component', Component);

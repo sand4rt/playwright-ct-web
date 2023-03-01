@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
-@customElement('pw-named-slots')
+@customElement('named-slots-component')
 export class NamedSlots extends LitElement {
   render() {
     return html`

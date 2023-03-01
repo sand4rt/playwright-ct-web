@@ -1,7 +1,7 @@
 import { LitElement, html } from 'lit';
 import { customElement, eventOptions, property } from 'lit/decorators.js';
 
-@customElement('pw-button')
+@customElement('button-component')
 export class Button extends LitElement {
   @property({ type: String })
   title!: string;

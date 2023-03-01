@@ -12,4 +12,4 @@ export class EmptyTemplate extends HTMLElement {
   }
 }
 
-customElements.define('pw-empty-template', EmptyTemplate);
+customElements.define('empty-template-component', EmptyTemplate);

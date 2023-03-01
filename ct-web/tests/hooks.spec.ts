@@ -1,6 +1,6 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { Button } from '@/components/Button';
-import type { HooksConfig } from '../playwright';
+import type { HooksConfig } from 'playwright';
 
 test('run hooks', async ({ page, mount }) => {
   const messages: string[] = [];

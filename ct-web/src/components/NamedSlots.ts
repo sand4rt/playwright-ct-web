@@ -1,3 +1,3 @@
 export class NamedSlots extends HTMLElement {}
 
-customElements.define('pw-named-slots', NamedSlots);
+customElements.define('named-slots-component', NamedSlots);

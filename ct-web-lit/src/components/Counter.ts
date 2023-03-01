@@ -3,7 +3,7 @@ import { customElement, eventOptions, property } from 'lit/decorators.js';
 
 let remountCount = 0 
 
-@customElement('pw-counter')
+@customElement('counter-component')
 export class Counter extends LitElement {
   @property({ type: Number })
   count!: number;

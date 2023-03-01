@@ -15,4 +15,4 @@ export class MultiRoot extends HTMLElement {
   }
 }
 
-customElements.define('pw-multi-root', MultiRoot);
+customElements.define('multi-root-component', MultiRoot);

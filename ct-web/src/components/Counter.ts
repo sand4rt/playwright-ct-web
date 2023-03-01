@@ -40,4 +40,4 @@ export class Counter extends HTMLElement {
   }
 }
 
-customElements.define('pw-counter', Counter);
+customElements.define('counter-component', Counter);

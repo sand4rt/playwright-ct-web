@@ -28,4 +28,4 @@ export class Button extends HTMLElement {
   }
 }
 
-customElements.define('pw-button', Button);
+customElements.define('button-component', Button);
