@@ -1,16 +1,16 @@
 export class Button extends HTMLElement {
-  static _title: string;
+  _title!: string;
 
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
   }
 
-  static set title(title: string) {
+  set title(title: string) {
     this._title = title;
   }
 
-  static get title() {
+  get title() {
     return this._title;
   }
 
