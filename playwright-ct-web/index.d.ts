@@ -45,8 +45,9 @@ type IfEquals<X, Y, A, B> = (<T>() => T extends X ? 1 : 2) extends (<T>() => T e
 type WritableKeysOf<T> = {[P in keyof T]: IfEquals<{ [Q in P]: T[P] }, { -readonly [Q in P]: T[P] }, P, never>}[keyof T];
 type WritablePart<T> = Pick<T, WritableKeysOf<T>>;
 
-// TODO: get props, probably by filter readonly and function types?
-type ComponentProps<Component extends HTMLElement> = Partial<WritablePart<PickByValue<Component, JsonValue>>> & Partial<PickByValue<Component, JsonValue>>;
+type HTMLAttributes<Component extends HTMLElement> = Partial<WritablePart<PickByValue<Component, JsonValue>>>;
+type CustomProperties<Component extends HTMLElement> = Partial<PickByValue<Component, JsonValue>>;
+type ComponentProps<Component extends HTMLElement> = HTMLAttributes<Component> & CustomProperties<Component>;
 
 type Slot = number | string | Slot[];
 
