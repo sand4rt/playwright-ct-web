@@ -11,7 +11,7 @@ const listeners = new Map();
 /**
  * @param {{[key: string]: FrameworkComponent}} components
  */
-export function register(components) {
+export function pwRegister(components) {
   for (const [name, value] of Object.entries(components))
     registry.set(name, value);
 }
@@ -19,7 +19,7 @@ export function register(components) {
 /**
  * @param {HTMLElement} webComponent
  */
-function updateProps(webComponent, props = {}) {
+function __pwUpdateProps(webComponent, props = {}) {
   for (const [key, value] of Object.entries(props))
     webComponent[key] = value;
 }
@@ -27,7 +27,7 @@ function updateProps(webComponent, props = {}) {
 /**
  * @param {HTMLElement} webComponent
  */
-function removeEvents(webComponent, events = {}) {
+function __pwRemoveEvents(webComponent, events = {}) {
   for (const [key] of Object.entries(events)) {
     webComponent.removeEventListener(key, listeners.get(key));
     listeners.delete(key);
@@ -37,7 +37,7 @@ function removeEvents(webComponent, events = {}) {
 /**
  * @param {HTMLElement} webComponent
  */
-function updateEvents(webComponent, events = {}) {
+function __pwUpdateEvents(webComponent, events = {}) {
   for (const [key, listener] of Object.entries(events)) {
     const fn = event => listener(/** @type {CustomEvent} */ (event).detail);
     webComponent.addEventListener(key, fn);
@@ -48,14 +48,14 @@ function updateEvents(webComponent, events = {}) {
 /**
  * @param {HTMLElement} webComponent
  */
-function updateSlots(webComponent, slots = {}) {
+function __pwUpdateSlots(webComponent, slots = {}) {
   for (const [key, value] of Object.entries(slots)) {
     let slotElements;
     if (typeof value !== 'object')
-      slotElements = [createSlot(value)];
+      slotElements = [__pwCreateSlot(value)];
 
     if (Array.isArray(value))
-      slotElements = value.map(createSlot);
+      slotElements = value.map(__pwCreateSlot);
 
     if (!slotElements)
       throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\``);
@@ -85,7 +85,7 @@ function updateSlots(webComponent, slots = {}) {
  * @param {any} value
  * @return {?HTMLElement}
  */
-function createSlot(value) {
+function __pwCreateSlot(value) {
   return /** @type {?HTMLElement} */ (
     document
       .createRange()
@@ -97,7 +97,7 @@ function createSlot(value) {
 /**
  * @param {Component} component
  */
-function createComponent(component) {
+function __pwCreateComponent(component) {
   let Component = registry.get(component.type);
   if (!Component) {
     // Lookup by shorthand.
@@ -123,10 +123,10 @@ window.playwrightMount = async (component, rootElement, hooksConfig) => {
   if (component.kind !== 'object')
     throw new Error('JSX mount notation is not supported');
 
-  const webComponent = createComponent(component);
-  updateProps(webComponent, component.options?.props);
-  updateSlots(webComponent, component.options?.slots);
-  updateEvents(webComponent, component.options?.on);
+  const webComponent = __pwCreateComponent(component);
+  __pwUpdateProps(webComponent, component.options?.props);
+  __pwUpdateSlots(webComponent, component.options?.slots);
+  __pwUpdateEvents(webComponent, component.options?.on);
 
   for (const hook of window['__pw_hooks_before_mount'] || [])
     await hook({ hooksConfig });
@@ -144,10 +144,10 @@ window.playwrightUpdate = async (rootElement, component) => {
   const webComponent = /** @type {?HTMLElement} */ (rootElement.firstChild);
   if (!webComponent) throw new Error('Component was not mounted');
 
-  updateProps(webComponent, component.options?.props);
-  updateSlots(webComponent, component.options?.slots);
-  removeEvents(webComponent, component.options?.on);
-  updateEvents(webComponent, component.options?.on);
+  __pwUpdateProps(webComponent, component.options?.props);
+  __pwUpdateSlots(webComponent, component.options?.slots);
+  __pwRemoveEvents(webComponent, component.options?.on);
+  __pwUpdateEvents(webComponent, component.options?.on);
 };
 
 window.playwrightUnmount = async (rootElement) => {
