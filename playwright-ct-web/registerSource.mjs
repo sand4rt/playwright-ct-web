@@ -128,14 +128,24 @@ function __pwCreateComponent(component) {
 }
 
 window.playwrightMount = async (component, rootElement, hooksConfig) => {
-  if (component.kind !== 'object')
-    throw new Error('JSX mount notation is not supported');
+  let webComponent;
 
-  const webComponent = __pwCreateComponent(component);
-  __pwUpdateProps(webComponent, component.options?.props);
-  __pwUpdateAttributes(webComponent, component.options?.attributes);
-  __pwUpdateSlots(webComponent, component.options?.slots);
-  __pwUpdateEvents(webComponent, component.options?.on);
+  // Following is a very hacky way of allowing components to be mounted as strings,
+  // I would hope there is a better way of detecting that a 'string' is being passed in
+  // this but couldn't see anything obvious!
+  if (component.type.startsWith('<')) {
+    const webComponentTemplate = document.createElement('template');
+    webComponentTemplate.innerHTML = component.type;
+    webComponent = webComponentTemplate.content.cloneNode(true);
+  } else if (component.kind === 'object') {
+    webComponent = __pwCreateComponent(component);
+    __pwUpdateProps(webComponent, component.options?.props);
+    __pwUpdateAttributes(webComponent, component.options?.attributes);
+    __pwUpdateSlots(webComponent, component.options?.slots);
+    __pwUpdateEvents(webComponent, component.options?.on);      
+  } else {
+    throw new Error('JSX mount notation is not supported');
+  }
 
   for (const hook of window['__pw_hooks_before_mount'] || [])
     await hook({ hooksConfig });
