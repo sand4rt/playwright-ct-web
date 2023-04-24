@@ -27,6 +27,14 @@ function __pwUpdateProps(webComponent, props = {}) {
 /**
  * @param {HTMLElement} webComponent
  */
+function __pwUpdateAttributes(webComponent, attributes = {}) {
+  for (const [key, value] of Object.entries(attributes))
+    webComponent.setAttribute(key, typeof value === 'boolean' ? '' : value);
+}
+
+/**
+ * @param {HTMLElement} webComponent
+ */
 function __pwRemoveEvents(webComponent, events = {}) {
   for (const [key] of Object.entries(events)) {
     webComponent.removeEventListener(key, listeners.get(key));
@@ -125,6 +133,7 @@ window.playwrightMount = async (component, rootElement, hooksConfig) => {
 
   const webComponent = __pwCreateComponent(component);
   __pwUpdateProps(webComponent, component.options?.props);
+  __pwUpdateAttributes(webComponent, component.options?.attributes);
   __pwUpdateSlots(webComponent, component.options?.slots);
   __pwUpdateEvents(webComponent, component.options?.on);
 
@@ -145,6 +154,7 @@ window.playwrightUpdate = async (rootElement, component) => {
   if (!webComponent) throw new Error('Component was not mounted');
 
   __pwUpdateProps(webComponent, component.options?.props);
+  __pwUpdateAttributes(webComponent, component.options?.attributes);
   __pwUpdateSlots(webComponent, component.options?.slots);
   __pwRemoveEvents(webComponent, component.options?.on);
   __pwUpdateEvents(webComponent, component.options?.on);
