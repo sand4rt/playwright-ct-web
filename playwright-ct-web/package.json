@@ -1,6 +1,6 @@
 {
   "name": "@sand4rt/experimental-ct-web",
-  "version": "1.0.8",
+  "version": "1.33.0",
   "description": "Playwright Component Testing for Web Components",
   "homepage": "https://playwright.dev",
   "repository": {
@@ -42,12 +42,15 @@
       "default": "./hooks.mjs"
     }
   },
+  "dependencies": {
+    "@playwright/test": "1.33.0",
+    "@playwright/experimental-ct-core": "^1.33.0"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.32.1",
-    "vite": "^4.1.4"
+    "vite": "^4.3.5"
   },
   "peerDependencies": {
-    "@playwright/test": ">=1.31.0"
+    "@playwright/test": ">=1.33.0"
   },
   "bin": {
     "playwright": "./cli.js"

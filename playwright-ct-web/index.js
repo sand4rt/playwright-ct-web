@@ -15,15 +15,13 @@
  */
 
 const { test: baseTest, expect, devices, defineConfig: originalDefineConfig } = require('@playwright/test');
-const { fixtures } = require('@playwright/test/lib/mount');
+const { fixtures } = require('@playwright/experimental-ct-core/lib/mount');
 const path = require('path');
 
 function plugin() {
   // Only fetch upon request to avoid resolution in workers.
-  const { createPlugin } = require('@playwright/test/lib/plugins/vitePlugin');
-  return createPlugin(
-    path.join(__dirname, 'registerSource.mjs'),
-    () => {});
+  const { createPlugin } = require('@playwright/experimental-ct-core/lib/vitePlugin');
+  return createPlugin(path.join(__dirname, 'registerSource.mjs'), () => {});
 };
 
 const defineConfig = config => originalDefineConfig({ ...config, _plugins: [plugin] });
