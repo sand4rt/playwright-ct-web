@@ -7,21 +7,16 @@
 
 ## Usage
 
-First, install playwright and initialize component testing, then install the web component adapter.
+Initialize Playwright Web component testing with PNPM, NPM or Yarn and follow the installation steps:
 
 ```sh
-npm init playwright@latest -- --ct
-npm install -D @sand4rt/experimental-ct-web
+pnpm dlx create-playwright-sand4rt --ct
 ```
-
-After installing the config needs to be modified:
-
-```ts
-import { defineConfig } from '@sand4rt/experimental-ct-web';
-
-export default defineConfig({
-  // ...Your config
-});
+```sh
+npm init playwright-sand4rt@latest -- --ct
+```
+```sh
+yarn create playwright-sand4rt --ct
 ```
 
 Now you can start adding your first test:
@@ -57,4 +52,4 @@ test('render props', async ({ mount }) => {
 });
 ```
 
-See the official [playwright component testing documentation](https://playwright.dev/docs/test-components) and the tests for [lit](ct-web-lit/tests) and [native web components](ct-web/tests) for more information on how to use it.
+See the official [playwright component testing documentation](https://playwright.dev/docs/test-components) and the tests for [lit](https://github.com/sand4rt/playwright-ct-web/tree/master/ct-web-lit/tests) and [native web components](https://github.com/sand4rt/playwright-ct-web/tree/master/ct-web/tests) for more information on how to use it.
