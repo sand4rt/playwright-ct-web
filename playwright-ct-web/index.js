@@ -21,7 +21,7 @@ const path = require('path');
 function plugin() {
   // Only fetch upon request to avoid resolution in workers.
   const { createPlugin } = require('@playwright/experimental-ct-core/lib/vitePlugin');
-  return createPlugin(path.join(__dirname, 'registerSource.mjs'), () => {});
+  return createPlugin(path.join(__dirname, 'registerSource.mjs'));
 };
 
 const defineConfig = config => originalDefineConfig({ ...config, _plugins: [plugin] });
