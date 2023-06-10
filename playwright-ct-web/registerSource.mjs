@@ -191,7 +191,8 @@ window.playwrightUpdate = async (rootElement, component) => {
     throw new Error('JSX mount notation is not supported');
 
   const webComponent = /** @type {?HTMLElement} */ (rootElement.firstChild);
-  if (!webComponent) throw new Error('Component was not mounted');
+  if (!webComponent)
+    throw new Error('Component was not mounted');
 
   __pwUpdateProps(webComponent, component.options?.props);
   __pwUpdateSlots(webComponent, component.options?.slots);
@@ -200,5 +201,9 @@ window.playwrightUpdate = async (rootElement, component) => {
 };
 
 window.playwrightUnmount = async (rootElement) => {
-  rootElement.replaceChildren();
+  const webComponent = rootElement.firstChild;
+  if (!webComponent)
+    throw new Error('Component was not mounted');
+
+  rootElement.removeChild(webComponent);
 };
