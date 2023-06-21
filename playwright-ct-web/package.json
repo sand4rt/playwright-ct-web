@@ -50,7 +50,7 @@
     "vite": "^4.3.5"
   },
   "peerDependencies": {
-    "@playwright/test": ">=1.35.x"
+    "@playwright/test": ">=1.35.1"
   },
   "bin": {
     "playwright": "./cli.js"
