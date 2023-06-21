@@ -9,7 +9,7 @@ export type HooksConfig = {
 beforeMount<HooksConfig>(async ({ hooksConfig }) => {
   console.log(`Before mount: ${JSON.stringify(hooksConfig)}`);
 });
-  
+
 afterMount<HooksConfig>(async () => {
   console.log(`After mount`);
 });

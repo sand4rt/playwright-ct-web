@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-const { test: baseTest, expect, devices, defineConfig: originalDefineConfig } = require('@playwright/test');
-const { fixtures } = require('@playwright/experimental-ct-core/lib/mount');
+const { test, expect, devices, defineConfig: originalDefineConfig } = require('@playwright/experimental-ct-core');
 const path = require('path');
 
 function plugin() {
@@ -25,6 +24,5 @@ function plugin() {
 };
 
 const defineConfig = config => originalDefineConfig({ ...config, _plugins: [plugin] });
-const test = baseTest.extend(fixtures);
 
 module.exports = { test, expect, devices, defineConfig };
