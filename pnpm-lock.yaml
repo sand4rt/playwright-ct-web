@@ -7,19 +7,19 @@ importers:
 
   ct-web:
     specifiers:
-      '@playwright/test': ^1.35.1
+      '@playwright/test': ^1.36.0
       '@sand4rt/experimental-ct-web': workspace:*
       typescript: ^5.1.3
       vite: ^4.1.4
     devDependencies:
-      '@playwright/test': 1.35.1
+      '@playwright/test': 1.36.0
       '@sand4rt/experimental-ct-web': link:../playwright-ct-web
       typescript: 5.1.3
       vite: 4.3.9
 
   ct-web-lit:
     specifiers:
-      '@playwright/test': ^1.35.1
+      '@playwright/test': ^1.36.0
       '@sand4rt/experimental-ct-web': workspace:*
       lit: ^2.6.1
       typescript: ^5.1.3
@@ -27,19 +27,19 @@ importers:
     dependencies:
       lit: 2.7.5
     devDependencies:
-      '@playwright/test': 1.35.1
+      '@playwright/test': 1.36.0
       '@sand4rt/experimental-ct-web': link:../playwright-ct-web
       typescript: 5.1.3
       vite: 4.3.9
 
   playwright-ct-web:
     specifiers:
-      '@playwright/experimental-ct-core': ^1.35.1
-      '@playwright/test': 1.35.1
+      '@playwright/experimental-ct-core': ^1.36.0
+      '@playwright/test': 1.36.0
       vite: ^4.3.5
     dependencies:
-      '@playwright/experimental-ct-core': 1.35.1
-      '@playwright/test': 1.35.1
+      '@playwright/experimental-ct-core': 1.36.0
+      '@playwright/test': 1.36.0
     devDependencies:
       vite: 4.3.9
 
@@ -231,12 +231,13 @@ packages:
       '@lit-labs/ssr-dom-shim': 1.1.1
     dev: false
 
-  /@playwright/experimental-ct-core/1.35.1:
-    resolution: {integrity: sha512-NSoUf6JDLeZFy0HiENwA1GkIwZHvg5KrygnZknwWs7O8yksYLsmiuMb09sf2zsZmfYgVen401SNgf3KfekbweA==}
+  /@playwright/experimental-ct-core/1.36.0:
+    resolution: {integrity: sha512-kWVbiGwYHIu4W8giMf+tWfJ9SqekXupd0bMo7VmrufmT06pZtZvWikjEV235xqUFcj4E+KFJs8uF/vmrX3hvVw==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      '@playwright/test': 1.35.1
+      '@playwright/test': 1.36.0
+      playwright-core: 1.36.0
       vite: 4.3.9
     transitivePeerDependencies:
       - '@types/node'
@@ -247,13 +248,13 @@ packages:
       - terser
     dev: false
 
-  /@playwright/test/1.35.1:
-    resolution: {integrity: sha512-b5YoFe6J9exsMYg0pQAobNDR85T1nLumUYgUTtKm4d21iX2L7WqKq9dW8NGJ+2vX0etZd+Y7UeuqsxDXm9+5ZA==}
+  /@playwright/test/1.36.0:
+    resolution: {integrity: sha512-yN+fvMYtiyLFDCQos+lWzoX4XW3DNuaxjBu68G0lkgLgC6BP+m/iTxJQoSicz/x2G5EsrqlZTqTIP9sTgLQerg==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
       '@types/node': 20.3.1
-      playwright-core: 1.35.1
+      playwright-core: 1.36.0
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -330,8 +331,8 @@ packages:
   /picocolors/1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
-  /playwright-core/1.35.1:
-    resolution: {integrity: sha512-pNXb6CQ7OqmGDRspEjlxE49w+4YtR6a3X6mT1hZXeJHWmsEz7SunmvZeiG/+y1yyMZdHnnn73WKYdtV1er0Xyg==}
+  /playwright-core/1.36.0:
+    resolution: {integrity: sha512-7RTr8P6YJPAqB+8j5ATGHqD6LvLLM39sYVNsslh78g8QeLcBs5750c6+msjrHUwwGt+kEbczBj1XB22WMwn+WA==}
     engines: {node: '>=16'}
     hasBin: true
 
