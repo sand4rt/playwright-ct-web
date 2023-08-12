@@ -11,10 +11,14 @@ updates:
     directory: "/ct-web-lit"
     schedule:
       interval: "daily"
+    allow:
+      - dependency-name: "@playwright/test"
   - package-ecosystem: "npm"
     directory: "/ct-web"
     schedule:
       interval: "daily"
+    allow:
+      - dependency-name: "@playwright/test"
   - package-ecosystem: "npm"
     directory: "/playwright-ct-web"
     schedule:
