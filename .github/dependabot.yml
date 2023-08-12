@@ -7,3 +7,15 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/ct-web-lit"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/ct-web"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm"
+    directory: "/playwright-ct-web"
+    schedule:
+      interval: "daily"
