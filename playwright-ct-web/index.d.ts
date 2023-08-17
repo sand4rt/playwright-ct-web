@@ -45,18 +45,25 @@ type HTMLAttributes<Component extends HTMLElement> = Partial<WritablePart<PickBy
 type CustomProperties<Component extends HTMLElement> = Partial<PickByValue<Component, JsonValue>>;
 type ComponentProps<Component extends HTMLElement> = HTMLAttributes<Component> & CustomProperties<Component>;
 
-type Slot = number | string | Slot[];
+type ComponentSlot = number | string | ComponentSlot[];
+type ComponentSlots = Record<string, ComponentSlot> & { default?: ComponentSlot };
+
+type ComponentEvents = Record<string, Function>;
 
 export interface MountOptions<HooksConfig extends JsonObject, Component extends HTMLElement> {
   props?: ComponentProps<Component>;
-  slots?: Record<string, Slot> & { default?: Slot };
-  on?: Record<string, Function>;
+  slots?: ComponentSlots;
+  on?: ComponentEvents;
   hooksConfig?: HooksConfig;
 }
 
 interface MountResult<Component extends HTMLElement> extends Locator {
   unmount(): Promise<void>;
-  update(options: Omit<MountOptions<never, Component>, 'hooksConfig'>): Promise<void>;
+  update(options: {
+    props?: Partial<ComponentProps<Component>>;
+    slots?: Partial<ComponentSlots>;
+    on?: Partial<ComponentEvents>;
+  }): Promise<void>;
 }
 
 export interface ComponentFixtures {
