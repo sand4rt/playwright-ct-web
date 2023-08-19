@@ -16,5 +16,10 @@
   "scripts": {
     "test": "pnpm --stream -r test",
     "build": "pnpm --stream -r build"
-  }
+  },
+  "workspaces": [
+    "ct-web",
+    "ct-web-lit",
+    "playwright-ct-web"
+  ]
 }
