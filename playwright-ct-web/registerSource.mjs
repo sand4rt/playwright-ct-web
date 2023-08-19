@@ -29,7 +29,7 @@ const __pwRegistry = new Map();
 const __pwListeners = new Map();
 
 /**
- * @param {Record<string, () => Promise<FrameworkComponent>} components
+ * @param {Record<string, () => Promise<FrameworkComponent>>} components
  */
 export function pwRegister(components) {
   for (const [name, value] of Object.entries(components))
