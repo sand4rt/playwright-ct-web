@@ -5,7 +5,7 @@
 > 
 > To push for official support, feedback in the form of github issues and or stars is appreciated!
 
-# Capabilities
+## Capabilities
 
 - Run tests fast, in parallel and optionally [over multiple machines](https://playwright.dev/docs/test-sharding).
 - Run the test accross multiple _real_ desktop and mobile browsers.
