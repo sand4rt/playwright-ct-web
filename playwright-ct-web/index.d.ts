@@ -14,26 +14,9 @@
  * limitations under the License.
  */
 
-import type {
-  TestType,
-  PlaywrightTestArgs,
-  PlaywrightTestConfig as BasePlaywrightTestConfig,
-  PlaywrightTestOptions,
-  PlaywrightWorkerArgs,
-  PlaywrightWorkerOptions,
-  Locator,
-} from '@playwright/test';
-import type { JsonObject, JsonValue } from '@playwright/experimental-ct-core/types/component';
-import type { InlineConfig } from 'vite';
-
-export type PlaywrightTestConfig<T = {}, W = {}> = Omit<BasePlaywrightTestConfig<T, W>, 'use'> & {
-  use?: BasePlaywrightTestConfig<T, W>['use'] & {
-    ctPort?: number;
-    ctTemplateDir?: string;
-    ctCacheDir?: string;
-    ctViteConfig?: InlineConfig | (() => Promise<InlineConfig>);
-  };
-};
+import type { Locator } from '@playwright/test';
+import type { JsonObject, JsonValue, } from '@playwright/experimental-ct-core/types/component';
+import type { TestType } from '@playwright/experimental-ct-core';
 
 type PickByValue<T, ValueType> = Pick<T, { [Key in keyof T]-?: T[Key] extends ValueType ? Key : never }[keyof T]>;
 
@@ -66,20 +49,12 @@ interface MountResult<Component extends HTMLElement> extends Locator {
   }): Promise<void>;
 }
 
-export interface ComponentFixtures {
+export const test: TestType<{
   mount<HooksConfig extends JsonObject, Component extends HTMLElement = HTMLElement>(
     component: new (...args: any[]) => Component,
     options?: MountOptions<HooksConfig, Component>
   ): Promise<MountResult<Component>>;
-}
+}>;
 
-export const test: TestType<
-  PlaywrightTestArgs & PlaywrightTestOptions & ComponentFixtures,
-  PlaywrightWorkerArgs & PlaywrightWorkerOptions
->;
-
-export function defineConfig(config: PlaywrightTestConfig): PlaywrightTestConfig;
-export function defineConfig<T>(config: PlaywrightTestConfig<T>): PlaywrightTestConfig<T>;
-export function defineConfig<T, W>(config: PlaywrightTestConfig<T, W>): PlaywrightTestConfig<T, W>;
-
+export { defineConfig, PlaywrightTestConfig } from '@playwright/experimental-ct-core';
 export { expect, devices } from '@playwright/test';
