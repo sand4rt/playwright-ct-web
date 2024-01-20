@@ -17,59 +17,21 @@
 // @ts-check
 // This file is injected into the registry as text, no dependencies are allowed.
 
-/** @typedef {import('@playwright/experimental-ct-core/types/component').Component} Component */
-/** @typedef {import('@playwright/experimental-ct-core/types/component').JsxComponent} JsxComponent */
 /** @typedef {import('@playwright/experimental-ct-core/types/component').ObjectComponent} ObjectComponent */
 /** @typedef {new (...args: any[]) => HTMLElement} FrameworkComponent */
 
-/** @type {Map<string, () => Promise<FrameworkComponent>>} */
-const __pwLoaderRegistry = new Map();
-/** @type {Map<string, FrameworkComponent>} */
-const __pwRegistry = new Map();
 const __pwListeners = new Map();
 
 /**
- * @param {Record<string, () => Promise<FrameworkComponent>>} components
+ * @param {any} component
+ * @returns {component is ObjectComponent}
  */
-export function pwRegister(components) {
-  for (const [name, value] of Object.entries(components))
-    __pwLoaderRegistry.set(name, value);
-}
-
-/**
- * @param {Component} component
- * @returns {component is JsxComponent | ObjectComponent}
- */
-function isComponent(component) {
-  return !(typeof component !== 'object' || Array.isArray(component));
-}
-
-/**
- * @param {Component} component
- */
-async function __pwResolveComponent(component) {
-  if (!isComponent(component))
-    return
-
-  let componentFactory = __pwLoaderRegistry.get(component.type);
-  if (!componentFactory) {
-    // Lookup by shorthand.
-    for (const [name, value] of __pwLoaderRegistry) {
-      if (component.type.endsWith(`_${name}`)) {
-        componentFactory = value;
-        break;
-      }
-    }
-  }
-
-  if (!componentFactory && component.type[0].toUpperCase() === component.type[0])
-    throw new Error(`Unregistered component: ${component.type}. Following components are registered: ${[...__pwRegistry.keys()]}`);
-
-  if(componentFactory)
-    __pwRegistry.set(component.type, await componentFactory())
-
-  if ('children' in component)
-    await Promise.all(component.children.map(child => __pwResolveComponent(child)))
+function isObjectComponent(component) {
+  return (
+    typeof component === 'object' &&
+    component &&
+    component.__pw_type === 'object-component'
+  );
 }
 
 /**
@@ -95,7 +57,7 @@ function __pwRemoveEvents(webComponent, events = {}) {
  */
 function __pwUpdateEvents(webComponent, events = {}) {
   for (const [key, listener] of Object.entries(events)) {
-    const fn = event => listener(/** @type {CustomEvent} */ (event).detail);
+    const fn = (event) => listener(/** @type {CustomEvent} */ (event).detail);
     webComponent.addEventListener(key, fn);
     __pwListeners.set(key, fn);
   }
@@ -114,11 +76,15 @@ function __pwUpdateSlots(webComponent, slots = {}) {
       slotElements = value.map(__pwCreateSlot);
 
     if (!slotElements)
-      throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\``);
+      throw new Error(
+        `Invalid slot with name: \`${key}\` supplied to \`mount()\``,
+      );
 
     for (const slotElement of slotElements) {
       if (!slotElement)
-        throw new Error(`Invalid slot with name: \`${key}\` supplied to \`mount()\``);
+        throw new Error(
+          `Invalid slot with name: \`${key}\` supplied to \`mount()\``,
+        );
 
       if (key === 'default') {
         webComponent.appendChild(slotElement);
@@ -127,7 +93,7 @@ function __pwUpdateSlots(webComponent, slots = {}) {
 
       if (slotElement.nodeName === '#text') {
         throw new Error(
-          `Invalid slot with name: \`${key}\` supplied to \`mount()\`, expected \`HTMLElement\` but received \`TextNode\`.`
+          `Invalid slot with name: \`${key}\` supplied to \`mount()\`, expected \`HTMLElement\` but received \`TextNode\`.`,
         );
       }
 
@@ -143,42 +109,22 @@ function __pwUpdateSlots(webComponent, slots = {}) {
  */
 function __pwCreateSlot(value) {
   return /** @type {?HTMLElement} */ (
-    document
-      .createRange()
-      .createContextualFragment(value)
-      .firstChild
+    document.createRange().createContextualFragment(value).firstChild
   );
 }
 
-/**
- * @param {Component} component
- */
-function __pwCreateComponent(component) {
-  const Component = __pwRegistry.get(component.type);
-  if (!Component)
-    throw new Error(
-      `Unregistered component: ${
-        component.type
-      }. Following components are registered: ${[...__pwRegistry.keys()]}`
-    );
-
-  const webComponent = new Component();
-  __pwUpdateProps(webComponent, component.options?.props);
-  __pwUpdateSlots(webComponent, component.options?.slots);
-  __pwUpdateEvents(webComponent, component.options?.on);
-  return webComponent;
-}
-
 window.playwrightMount = async (component, rootElement, hooksConfig) => {
-  await __pwResolveComponent(component);
-  if (component.kind !== 'object')
+  if (!isObjectComponent(component))
     throw new Error('JSX mount notation is not supported');
-
-  const webComponent = __pwCreateComponent(component);
 
   for (const hook of window['__pw_hooks_before_mount'] || [])
     await hook({ hooksConfig });
 
+    console.log(component)
+  const webComponent = new component();
+  __pwUpdateProps(webComponent, component.props);
+  __pwUpdateSlots(webComponent, component.slots);
+  __pwUpdateEvents(webComponent, component.on);
   rootElement.appendChild(webComponent);
 
   for (const hook of window['__pw_hooks_after_mount'] || [])
@@ -186,17 +132,16 @@ window.playwrightMount = async (component, rootElement, hooksConfig) => {
 };
 
 window.playwrightUpdate = async (rootElement, component) => {
-  await __pwResolveComponent(component);
-  if (component.kind === 'jsx')
+  if (!isObjectComponent(component))
     throw new Error('JSX mount notation is not supported');
 
   const webComponent = /** @type {?HTMLElement} */ (rootElement.firstChild);
   if (!webComponent) throw new Error('Component was not mounted');
 
-  __pwUpdateProps(webComponent, component.options?.props);
-  __pwUpdateSlots(webComponent, component.options?.slots);
-  __pwRemoveEvents(webComponent, component.options?.on);
-  __pwUpdateEvents(webComponent, component.options?.on);
+  __pwUpdateProps(webComponent, component.props);
+  __pwUpdateSlots(webComponent, component.slots);
+  __pwRemoveEvents(webComponent, component.on);
+  __pwUpdateEvents(webComponent, component.on);
 };
 
 window.playwrightUnmount = async (rootElement) => {
