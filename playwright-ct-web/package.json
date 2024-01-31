@@ -43,7 +43,7 @@
     }
   },
   "dependencies": {
-    "@playwright/experimental-ct-core": "^1.41.1"
+    "@playwright/experimental-ct-core": "1.41.1"
   },
   "devDependencies": {
     "@playwright/test": "1.41.1"
@@ -52,6 +52,7 @@
     "@playwright/test": ">=1.41.1"
   },
   "bin": {
-    "playwright": "./cli.js"
+    "playwright": "cli.js",
+    "pw-angular": "cli.js"
   }
 }

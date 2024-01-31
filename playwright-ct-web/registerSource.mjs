@@ -114,14 +114,13 @@ function __pwCreateSlot(value) {
 }
 
 window.playwrightMount = async (component, rootElement, hooksConfig) => {
-  if (!isObjectComponent(component))
+  if (component.__pw_type === 'jsx')
     throw new Error('JSX mount notation is not supported');
 
   for (const hook of window['__pw_hooks_before_mount'] || [])
     await hook({ hooksConfig });
 
-    console.log(component)
-  const webComponent = new component();
+  const webComponent = new component.type();
   __pwUpdateProps(webComponent, component.props);
   __pwUpdateSlots(webComponent, component.slots);
   __pwUpdateEvents(webComponent, component.on);
