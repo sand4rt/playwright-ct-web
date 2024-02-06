@@ -40,7 +40,7 @@ export interface MountOptions<HooksConfig extends JsonObject, Component extends 
   hooksConfig?: HooksConfig;
 }
 
-interface MountResult<Component extends HTMLElement> extends Locator {
+export interface MountResult<Component extends HTMLElement> extends Locator {
   unmount(): Promise<void>;
   update(options: {
     props?: Partial<ComponentProps<Component>>;
