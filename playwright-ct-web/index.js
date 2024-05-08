@@ -17,12 +17,15 @@
 const { test, expect, devices, defineConfig: originalDefineConfig } = require('@playwright/experimental-ct-core');
 const path = require('path');
 
-function plugin() {
-  // Only fetch upon request to avoid resolution in workers.
-  const { createPlugin } = require('@playwright/experimental-ct-core/lib/vitePlugin');
-  return createPlugin(path.join(__dirname, 'registerSource.mjs'));
+const defineConfig = (config, ...configs) => {
+  const originalConfig = originalDefineConfig({
+    ...config,
+    '@playwright/experimental-ct-core': {
+      registerSourceFile: path.join(__dirname, 'registerSource.mjs'),
+    },
+  }, ...configs);
+  originalConfig['@playwright/test'].babelPlugins = [[require.resolve('./transform')]];
+  return originalConfig ;
 };
-
-const defineConfig = (config, ...configs) => originalDefineConfig({ ...config, _plugins: [plugin] }, ...configs);
 
 module.exports = { test, expect, devices, defineConfig };

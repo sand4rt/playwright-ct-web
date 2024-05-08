@@ -11,13 +11,13 @@ jobs:
     steps:
       - uses: pnpm/action-setup@v2
         with:
-          version: '8.x'
+          version: '9.x'
 
       - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
           scope: '@sand4rt'
 
