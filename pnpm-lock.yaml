@@ -11,8 +11,8 @@ importers:
   ct-web:
     devDependencies:
       '@playwright/test':
-        specifier: ^1.44.0
-        version: 1.44.0
+        specifier: ^1.44.1
+        version: 1.44.1
       '@sand4rt/experimental-ct-web':
         specifier: workspace:*
         version: link:../playwright-ct-web
@@ -30,8 +30,8 @@ importers:
         version: 2.6.1
     devDependencies:
       '@playwright/test':
-        specifier: ^1.44.0
-        version: 1.44.0
+        specifier: ^1.44.1
+        version: 1.44.1
       '@sand4rt/experimental-ct-web':
         specifier: workspace:*
         version: link:../playwright-ct-web
@@ -45,12 +45,12 @@ importers:
   playwright-ct-web:
     dependencies:
       '@playwright/experimental-ct-core':
-        specifier: 1.44.0
-        version: 1.44.0
+        specifier: 1.44.1
+        version: 1.44.1
     devDependencies:
       '@playwright/test':
-        specifier: 1.44.0
-        version: 1.44.0
+        specifier: 1.44.1
+        version: 1.44.1
 
 packages:
 
@@ -330,12 +330,12 @@ packages:
   '@lit/reactive-element@1.6.2':
     resolution: {integrity: sha512-rDfl+QnCYjuIGf5xI2sVJWdYIi56CTCwWa+nidKYX6oIuBYwUbT/vX4qbUDlHiZKJ/3FRNQ/tWJui44p6/stSA==}
 
-  '@playwright/experimental-ct-core@1.44.0':
-    resolution: {integrity: sha512-0PnvZVIrZW079Q+nyX5cz+MHpWd7G5t+cdtrAjREUk0+BbJ2A/KXnuHdtmw/OVrqQjwMxUWdSv9hXpi2lnOJYA==}
+  '@playwright/experimental-ct-core@1.44.1':
+    resolution: {integrity: sha512-IqeXzfmpHH8yHA0fGQ//l/tDJHzUmg2dQj3t28E1tCshvnYc9fVr53Na9+/B8ME//vw0UFpv+CSKcOTHwWrhQg==}
     engines: {node: '>=16'}
 
-  '@playwright/test@1.44.0':
-    resolution: {integrity: sha512-rNX5lbNidamSUorBhB4XZ9SQTjAqfe5M+p37Z8ic0jPFBMo5iCtQz1kRWkEMg+rYOKSlVycpQmpqjSFq7LXOfg==}
+  '@playwright/test@1.44.1':
+    resolution: {integrity: sha512-1hZ4TNvD5z9VuhNJ/walIjvMVvYkZKf71axoF/uiAqpntQJXpG64dlXhoDXE3OczPuTuvjf/M5KWFg5VAVUS3Q==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -467,13 +467,13 @@ packages:
   picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
-  playwright-core@1.44.0:
-    resolution: {integrity: sha512-ZTbkNpFfYcGWohvTTl+xewITm7EOuqIqex0c7dNZ+aXsbrLj0qI8XlGKfPpipjm0Wny/4Lt4CJsWJk1stVS5qQ==}
+  playwright-core@1.44.1:
+    resolution: {integrity: sha512-wh0JWtYTrhv1+OSsLPgFzGzt67Y7BE/ZS3jEqgGBlp2ppp1ZDj8c+9IARNW4dwf1poq5MgHreEM2KV/GuR4cFA==}
     engines: {node: '>=16'}
     hasBin: true
 
-  playwright@1.44.0:
-    resolution: {integrity: sha512-F9b3GUCLQ3Nffrfb6dunPOkE5Mh68tR7zN32L4jCk4FjQamgesGay7/dAAe1WaMEGV04DkdJfcJzjoCKygUaRQ==}
+  playwright@1.44.1:
+    resolution: {integrity: sha512-qr/0UJ5CFAtloI3avF95Y0L1xQo6r3LQArLIg/z/PoGJ6xa+EwzrwO5lpNr/09STxdHuUoP2mvuELJS+hLdtgg==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -707,10 +707,10 @@ snapshots:
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.1.1
 
-  '@playwright/experimental-ct-core@1.44.0':
+  '@playwright/experimental-ct-core@1.44.1':
     dependencies:
-      playwright: 1.44.0
-      playwright-core: 1.44.0
+      playwright: 1.44.1
+      playwright-core: 1.44.1
       vite: 5.2.11
     transitivePeerDependencies:
       - '@types/node'
@@ -721,9 +721,9 @@ snapshots:
       - sugarss
       - terser
 
-  '@playwright/test@1.44.0':
+  '@playwright/test@1.44.1':
     dependencies:
-      playwright: 1.44.0
+      playwright: 1.44.1
 
   '@rollup/rollup-android-arm-eabi@4.17.2':
     optional: true
@@ -856,11 +856,11 @@ snapshots:
 
   picocolors@1.0.0: {}
 
-  playwright-core@1.44.0: {}
+  playwright-core@1.44.1: {}
 
-  playwright@1.44.0:
+  playwright@1.44.1:
     dependencies:
-      playwright-core: 1.44.0
+      playwright-core: 1.44.1
     optionalDependencies:
       fsevents: 2.3.2
 
