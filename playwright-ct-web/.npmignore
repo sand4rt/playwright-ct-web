@@ -10,3 +10,4 @@
 !index.js
 !hooks.d.ts
 !hooks.mjs
+!transform.js
