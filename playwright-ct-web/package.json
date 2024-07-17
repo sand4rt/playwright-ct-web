@@ -1,6 +1,6 @@
 {
   "name": "@sand4rt/experimental-ct-web",
-  "version": "1.45.1",
+  "version": "1.45.2",
   "description": "Playwright Component Testing for Web Components",
   "homepage": "https://playwright.dev",
   "repository": {
@@ -44,13 +44,13 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@playwright/experimental-ct-core": "1.45.1"
+    "@playwright/experimental-ct-core": "1.45.2"
   },
   "devDependencies": {
-    "@playwright/test": "1.45.1"
+    "@playwright/test": "1.45.2"
   },
   "peerDependencies": {
-    "@playwright/test": ">=1.45.1"
+    "@playwright/test": ">=1.45.2"
   },
   "bin": {
     "playwright": "cli.js"
