@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-import type { Locator } from '@playwright/test';
-import type { TestType } from '@playwright/experimental-ct-core';
+import type { TestType, Locator } from '@playwright/experimental-ct-core';
 
 type ComponentProps<Component extends HTMLElement> = Partial<Component>;
 type ComponentSlot = number | string | ComponentSlot[];
