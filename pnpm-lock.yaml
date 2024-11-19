@@ -39,8 +39,8 @@ importers:
   playwright-ct-web:
     dependencies:
       '@playwright/experimental-ct-core':
-        specifier: 1.47.0
-        version: 1.47.0
+        specifier: 1.49.0
+        version: 1.49.0
 
 packages:
 
@@ -320,8 +320,8 @@ packages:
   '@lit/reactive-element@1.6.2':
     resolution: {integrity: sha512-rDfl+QnCYjuIGf5xI2sVJWdYIi56CTCwWa+nidKYX6oIuBYwUbT/vX4qbUDlHiZKJ/3FRNQ/tWJui44p6/stSA==}
 
-  '@playwright/experimental-ct-core@1.47.0':
-    resolution: {integrity: sha512-IgZBGLREGUqTEXwb8Kh0vEG+/CHHf7EtpivAVoaO8cPzEfZU0LMlyjBaQk0ry5LDD65BZ9DwhTfMYMekAqWXMg==}
+  '@playwright/experimental-ct-core@1.49.0':
+    resolution: {integrity: sha512-Tl/JekIQOyHIctFvzmHaSB8SuBTbOYcIdrb5HMwMc70i86XbPnQfDp65zgzAuvUiDN1u1k+aIpygJ8ZqnRYgVw==}
     engines: {node: '>=18'}
 
   '@rollup/rollup-android-arm-eabi@4.17.2':
@@ -452,13 +452,13 @@ packages:
   picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
-  playwright-core@1.47.0:
-    resolution: {integrity: sha512-1DyHT8OqkcfCkYUD9zzUTfg7EfTd+6a8MkD/NWOvjo0u/SCNd5YmY/lJwFvUZOxJbWNds+ei7ic2+R/cRz/PDg==}
+  playwright-core@1.49.0:
+    resolution: {integrity: sha512-R+3KKTQF3npy5GTiKH/T+kdhoJfJojjHESR1YEWhYuEKRVfVaxH3+4+GvXE5xyCngCxhxnykk0Vlah9v8fs3jA==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.47.0:
-    resolution: {integrity: sha512-jOWiRq2pdNAX/mwLiwFYnPHpEZ4rM+fRSQpRHwEwZlP2PUANvL3+aJOF/bvISMhFD30rqMxUB4RJx9aQbfh4Ww==}
+  playwright@1.49.0:
+    resolution: {integrity: sha512-eKpmys0UFDnfNb3vfsf8Vx2LEOtflgRebl0Im2eQQnYMA4Aqd+Zw8bEOB+7ZKvN76901mRnqdsiOGKxzVTbi7A==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -692,10 +692,10 @@ snapshots:
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.1.1
 
-  '@playwright/experimental-ct-core@1.47.0':
+  '@playwright/experimental-ct-core@1.49.0':
     dependencies:
-      playwright: 1.47.0
-      playwright-core: 1.47.0
+      playwright: 1.49.0
+      playwright-core: 1.49.0
       vite: 5.2.11
     transitivePeerDependencies:
       - '@types/node'
@@ -837,11 +837,11 @@ snapshots:
 
   picocolors@1.0.0: {}
 
-  playwright-core@1.47.0: {}
+  playwright-core@1.49.0: {}
 
-  playwright@1.47.0:
+  playwright@1.49.0:
     dependencies:
-      playwright-core: 1.47.0
+      playwright-core: 1.49.0
     optionalDependencies:
       fsevents: 2.3.2
 
