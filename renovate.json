@@ -7,11 +7,9 @@
   "packageRules": [
     {
       "packagePatterns": [
-        "^playwright$",
-        "^@playwright/",
         "@sand4rt/experimental-ct-web"
       ],
-      "groupName": "Serenity/JS and Playwright",
+      "groupName": "Playwright",
       "automerge": false
     },
     {
