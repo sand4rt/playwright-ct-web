@@ -1,6 +1,28 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:base"
+  ],
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "^playwright$",
+        "^@playwright/",
+        "@sand4rt/experimental-ct-web"
+      ],
+      "groupName": "Serenity/JS and Playwright",
+      "automerge": false
+    },
+    {
+      "packagePatterns": ["^eslint$", "^eslint-plugin", "^@typescript-eslint"],
+      "groupName": "ESLint",
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": false
+    }
   ]
 }
