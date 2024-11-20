@@ -14,8 +14,8 @@ importers:
         specifier: workspace:*
         version: link:../playwright-ct-web
       typescript:
-        specifier: ^5.1.3
-        version: 5.1.3
+        specifier: ^5.6.3
+        version: 5.6.3
       vite:
         specifier: ^5.0.0
         version: 5.2.14
@@ -30,8 +30,8 @@ importers:
         specifier: workspace:*
         version: link:../playwright-ct-web
       typescript:
-        specifier: ^5.1.3
-        version: 5.1.3
+        specifier: ^5.6.3
+        version: 5.6.3
       vite:
         specifier: ^5.0.0
         version: 5.2.14
@@ -486,8 +486,8 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
-  typescript@5.1.3:
-    resolution: {integrity: sha512-XH627E9vkeqhlZFQuL+UsyAXEnibT0kWR2FWONlr4sTjvxyJYnyefgrkyECLzM5NenmKzRAy2rR/OlYLA1HkZw==}
+  typescript@5.6.3:
+    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -887,7 +887,7 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
-  typescript@5.1.3: {}
+  typescript@5.6.3: {}
 
   vite@5.2.14:
     dependencies:
