@@ -11,7 +11,7 @@
   "homepage": "https://github.com/sand4rt/playwright-ct-web#readme",
   "engines": {
     "node": ">=16",
-    "pnpm": ">=7"
+    "pnpm": ">=9.14.2"
   },
   "scripts": {
     "test": "pnpm --stream -r test",
