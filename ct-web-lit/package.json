@@ -10,7 +10,7 @@
     "test": "npx playwright test"
   },
   "dependencies": {
-    "lit": "^2.6.1"
+    "lit": "^2.8.0"
   },
   "devDependencies": {
     "@sand4rt/experimental-ct-web": "workspace:*",
