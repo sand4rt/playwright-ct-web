@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-export declare function beforeMount<HooksConfig, StaticProperties extends Record<string, any> = {}>(
-  callback: (params: {
-      hooksConfig?: HooksConfig;
-      App: { new (...args: any[]): HTMLElement } & StaticProperties;
-  }) => Promise<void>
+type App = { new (...args: any[]): HTMLElement };
+
+export declare function beforeMount<HooksConfig, App extends App = App>(
+  callback: (params: { App: Partial<App>; hooksConfig?: HooksConfig; }) => Promise<void>
+): void;
 ): void;
 
 export declare function afterMount<HooksConfig, Component extends HTMLElement = HTMLElement>(
