@@ -115,15 +115,15 @@ window.playwrightMount = async (component, rootElement, hooksConfig) => {
   if (component.__pw_type === 'jsx')
     throw new Error('JSX mount notation is not supported');
 
-  const webComponent = __pwCreateComponent(component);
-
   for (const hook of window['__pw_hooks_before_mount'] || [])
-    await hook({ hooksConfig });
+    await hook({ hooksConfig, App: component.type });
+
+  const webComponent = __pwCreateComponent(component);
 
   rootElement.appendChild(webComponent);
 
   for (const hook of window['__pw_hooks_after_mount'] || [])
-    await hook({ hooksConfig });
+    await hook({ hooksConfig, component: webComponent });
 };
 
 window.playwrightUpdate = async (rootElement, component) => {

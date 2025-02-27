@@ -14,9 +14,16 @@
  * limitations under the License.
  */
 
-export declare function beforeMount<HooksConfig>(
-  callback: (params: { hooksConfig?: HooksConfig }) => Promise<void>,
+export declare function beforeMount<HooksConfig, StaticProperties extends Record<string, any> = {}>(
+  callback: (params: {
+      hooksConfig?: HooksConfig;
+      App: { new (...args: any[]): HTMLElement } & StaticProperties;
+  }) => Promise<void>
 ): void;
-export declare function afterMount<HooksConfig>(
-  callback: (params: { hooksConfig?: HooksConfig }) => Promise<void>,
+
+export declare function afterMount<HooksConfig, Component extends HTMLElement = HTMLElement>(
+  callback: (params: {
+      hooksConfig?: HooksConfig;
+      element: Component
+  }) => Promise<void>,
 ): void;

@@ -6,10 +6,11 @@ export type HooksConfig = {
   route: string;
 }
 
-beforeMount<HooksConfig>(async ({ hooksConfig }) => {
+beforeMount<HooksConfig, { register?: (prefix: string) => void }>(async ({ hooksConfig, App }) => {
   console.log(`Before mount: ${JSON.stringify(hooksConfig)}`);
+  App.register?.call(null, 'my-prefixed-');
 });
-  
+
 afterMount<HooksConfig>(async () => {
   console.log(`After mount`);
 });
