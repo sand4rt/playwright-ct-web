@@ -123,7 +123,7 @@ window.playwrightMount = async (component, rootElement, hooksConfig) => {
   rootElement.appendChild(webComponent);
 
   for (const hook of window['__pw_hooks_after_mount'] || [])
-    await hook({ hooksConfig, component: webComponent });
+    await hook({ hooksConfig, instance: webComponent });
 };
 
 window.playwrightUpdate = async (rootElement, component) => {
