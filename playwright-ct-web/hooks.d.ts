@@ -21,9 +21,6 @@ export declare function beforeMount<HooksConfig, App extends App = App>(
 ): void;
 ): void;
 
-export declare function afterMount<HooksConfig, Component extends HTMLElement = HTMLElement>(
-  callback: (params: {
-      hooksConfig?: HooksConfig;
-      element: Component
-  }) => Promise<void>,
+export declare function afterMount<HooksConfig, Instance extends Instance = HTMLElement>(
+  callback: (params: { hooksConfig?: HooksConfig; instance: Partial<Instance> }) => Promise<void>,
 ): void;
