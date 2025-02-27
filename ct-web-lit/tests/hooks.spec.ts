@@ -1,6 +1,7 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import { Button } from '@/components/Button';
+import { expect, test } from '@sand4rt/experimental-ct-web';
 import type { HooksConfig } from 'playwright';
+import { Button } from '@/components/Button';
+import { CustomizableTagName } from '@/components/CustomizableTagName';
 
 test('run hooks', async ({ page, mount }) => {
   const messages: string[] = [];
@@ -15,4 +16,10 @@ test('run hooks', async ({ page, mount }) => {
     'Before mount: {"route":"A"}',
     'After mount',
   ]);
+});
+
+test('allow customizing the mount function', async ({ mount }) => {
+  const component = await mount(CustomizableTagName);
+  const tagName = await component.evaluate(el => el.tagName);
+  expect(tagName).toEqual('MY-PREFIXED-CUSTOMIZABLE-TAG-NAME-COMPONENT');
 });

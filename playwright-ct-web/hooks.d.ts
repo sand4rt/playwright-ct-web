@@ -19,7 +19,6 @@ type App = { new (...args: any[]): HTMLElement };
 export declare function beforeMount<HooksConfig, App extends App = App>(
   callback: (params: { App: Partial<App>; hooksConfig?: HooksConfig; }) => Promise<void>
 ): void;
-): void;
 
 export declare function afterMount<HooksConfig, Instance extends Instance = HTMLElement>(
   callback: (params: { hooksConfig?: HooksConfig; instance: Partial<Instance> }) => Promise<void>,

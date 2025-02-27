@@ -1,6 +1,7 @@
 import { beforeMount, afterMount } from '@sand4rt/experimental-ct-web/hooks';
 import '@/assets/index.css';
 import '@/components/Button';
+import { CustomizableTagName } from '@/components/CustomizableTagName';
 
 export type HooksConfig = {
   route: string;
