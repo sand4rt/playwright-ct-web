@@ -17,7 +17,7 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
       vite:
-        specifier: ^6.2.0
+        specifier: ^6.2.3
         version: 6.2.3
 
   ct-web-lit:
@@ -33,7 +33,7 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
       vite:
-        specifier: ^6.2.0
+        specifier: ^6.2.3
         version: 6.2.3
 
   playwright-ct-web:
