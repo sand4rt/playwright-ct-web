@@ -17,8 +17,8 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
       vite:
-        specifier: ^6.2.0
-        version: 6.2.3
+        specifier: ^6.2.4
+        version: 6.2.4
 
   ct-web-lit:
     dependencies:
@@ -33,8 +33,8 @@ importers:
         specifier: ^5.8.2
         version: 5.8.2
       vite:
-        specifier: ^6.2.0
-        version: 6.2.3
+        specifier: ^6.2.4
+        version: 6.2.4
 
   playwright-ct-web:
     dependencies:
@@ -370,8 +370,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  vite@6.2.3:
-    resolution: {integrity: sha512-IzwM54g4y9JA/xAeBPNaDXiBF8Jsgl3VBQ2YQ/wOY6fyW3xMdSoltIV3Bo59DErdqdE6RxUfv8W69DvUorE4Eg==}
+  vite@6.2.4:
+    resolution: {integrity: sha512-veHMSew8CcRzhL5o8ONjy8gkfmFJAd5Ac16oxBUjlwgX3Gq2Wqr+qNC3TjPIpy7TPV/KporLga5GT9HqdrCizw==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -497,7 +497,7 @@ snapshots:
     dependencies:
       playwright: 1.51.1
       playwright-core: 1.51.1
-      vite: 6.2.3
+      vite: 6.2.4
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -673,7 +673,7 @@ snapshots:
 
   typescript@5.8.2: {}
 
-  vite@6.2.3:
+  vite@6.2.4:
     dependencies:
       esbuild: 0.25.1
       postcss: 8.5.3
