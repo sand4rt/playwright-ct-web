@@ -38,3 +38,21 @@ jobs:
           name: playwright-report
           path: ./*/**/playwright-report/
           retention-days: 30
+
+      - name: Get versions
+        id: versions
+        run: |
+          echo "playwright=$(pnpm --silent version:get-playwright)" >> $GITHUB_OUTPUT
+          echo "current=$(pnpm --silent version:get-current)" >> $GITHUB_OUTPUT
+
+      - name: Release
+        run: |
+          if [ "${{ steps.versions.outputs.playwright }}" != "${{ steps.versions.outputs.current }}" ]; then
+            echo "Playwright updated, releasing new version"
+            
+          else
+            echo "Playwright up to date - no action needed"
+          fi
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
