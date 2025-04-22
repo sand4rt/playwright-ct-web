@@ -23,11 +23,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Get versions
+        id: versions
+        run: |
+          echo "playwright=$(pnpm --silent version:get-playwright)" >> $GITHUB_OUTPUT
+          echo "current=$(pnpm --silent version:get-current)" >> $GITHUB_OUTPUT
+
       - name: Build packages
         run: pnpm build
 
       - name: Install Playwright Browsers
-        run: pnpm dlx playwright install --with-deps
+        run: pnpm dlx playwright@${{ steps.versions.outputs.playwright }} install --with-deps
 
       - name: Run Playwright tests
         run: pnpm test
@@ -38,12 +44,6 @@ jobs:
           name: playwright-report
           path: ./*/**/playwright-report/
           retention-days: 30
-
-      - name: Get versions
-        id: versions
-        run: |
-          echo "playwright=$(pnpm --silent version:get-playwright)" >> $GITHUB_OUTPUT
-          echo "current=$(pnpm --silent version:get-current)" >> $GITHUB_OUTPUT
 
       - name: Release
         run: |
