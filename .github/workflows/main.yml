@@ -1,4 +1,5 @@
-name: Test
+name: Main
+
 on:
   push:
     branches: [ main, master ]
