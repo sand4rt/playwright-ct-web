@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Get versions
+      - name: Get Playwright version
         id: versions
         run: |
           echo "playwright=$(pnpm --silent playwright:version)" >> $GITHUB_OUTPUT
