@@ -83,5 +83,5 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ GITHUB_TOKEN }} # ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ${{ secrets.NPM_TOKEN }}
         run: pnpm release
