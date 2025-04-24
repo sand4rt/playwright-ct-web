@@ -78,6 +78,6 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ${{ secrets.NPM_TOKEN }}
         run: pnpm dlx semantic-release
         # pnpm publish --filter @sand4rt/experimental-ct-web --access public --no-git-checks
