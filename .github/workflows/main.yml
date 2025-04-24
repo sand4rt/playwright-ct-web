@@ -11,9 +11,10 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - uses: pnpm/action-setup@v2
+      - name: PNPM Setup
+        uses: pnpm/action-setup@v2
         with:
-          version: '9.x'
+          version: '10.x'
 
       - uses: actions/checkout@v4
 
@@ -58,6 +59,10 @@ jobs:
     needs:
       - test
     steps:
+      - name: PNPM Setup
+        uses: pnpm/action-setup@v2
+        with:
+          version: '10.x'
       - name: Checkout
         uses: actions/checkout@v4
         with:
