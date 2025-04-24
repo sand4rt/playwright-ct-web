@@ -32,8 +32,7 @@ jobs:
       - name: Get versions
         id: versions
         run: |
-          echo "playwright=$(pnpm --silent version:get-playwright)" >> $GITHUB_OUTPUT
-          echo "current=$(pnpm --silent version:get-current)" >> $GITHUB_OUTPUT
+          echo "playwright=$(pnpm --silent playwright:version)" >> $GITHUB_OUTPUT
 
       - name: Build packages
         run: pnpm build
