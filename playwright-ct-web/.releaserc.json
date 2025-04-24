@@ -8,9 +8,13 @@
         "dependency": "@playwright/experimental-ct-core"
     } ],
     [ "@semantic-release/npm", {
-        "npmPublish": true
+        "npmPublish": false
     } ],
-    "@semantic-release/github"
+    [ "@semantic-release/github", {
+      "assets": [
+        { "path": "*.tgz", "label": "playwright-ct-web" }
+      ]
+    } ]
   ],
   "ci": true,
   "debug": true,
