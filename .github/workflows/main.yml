@@ -2,12 +2,9 @@ name: Main
 
 on:
   push:
-    branches:
-      - main
-      - master
-      - features/auto-deploy  # todo: remove
+    branches: [ master ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ master ]
 
 jobs:
   test:
@@ -60,8 +57,6 @@ jobs:
       issues: write           # to be able to comment on released issues
       pull-requests: write    # to be able to comment on released pull requests
       id-token: write         # to enable use of OIDC for npm provenance
-      packages: write         # to be able to publish to GitHub Packages    # todo: remove
-
     needs:
       - test
     steps:
@@ -83,5 +78,5 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm release

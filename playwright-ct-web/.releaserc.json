@@ -1,6 +1,8 @@
 {
-  "branches": ["master", "main", "features/auto-deploy"],
-  "repositoryUrl": "git@github.com:jan-molak/playwright-ct-web.git",
+  "branches": [
+    "master"
+  ],
+  "repositoryUrl": "git@github.com:sand4rt/playwright-ct-web.git",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -8,7 +10,7 @@
         "dependency": "@playwright/experimental-ct-core"
     } ],
     [ "@semantic-release/npm", {
-        "npmPublish": false,
+        "npmPublish": true,
         "tarballDir": "."
     } ],
     [ "@semantic-release/github", {

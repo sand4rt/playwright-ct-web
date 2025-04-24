@@ -5,11 +5,10 @@
   "homepage": "https://playwright.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jan-molak/playwright-ct-web.git"
+    "url": "git+https://github.com/sand4rt/playwright-ct-web.git"
   },
   "publishConfig": {
-    "tag": "public",
-    "registry": "https://npm.pkg.github.com"
+    "tag": "public"
   },
   "bugs": {
     "url": "https://github.com/sand4rt/playwright-ct-web/issues"

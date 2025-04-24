@@ -2,7 +2,7 @@ import { resolve } from 'node:path';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { diff } from 'semver';
 
-export async function analyzeCommits(pluginConfig, { cwd, lastRelease, logger }) {
+export async function analyzeCommits(pluginConfig, { cwd, logger }) {
 
     const { dependency } = pluginConfig;
     const pathToPackageJson = resolve(cwd, './package.json');
