@@ -12,7 +12,7 @@
     } ],
     "@semantic-release/github"
   ],
-  "ci": false,
+  "ci": true,
   "debug": true,
-  "dryRun": true
+  "dryRun": false
 }
