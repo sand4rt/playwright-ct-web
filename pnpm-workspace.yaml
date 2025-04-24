@@ -2,3 +2,4 @@ packages:
   - 'ct-web/**'
   - 'ct-web-lit/**'
   - 'playwright-ct-web/**'
+  - 'semantic-release-version-mirror/**'
