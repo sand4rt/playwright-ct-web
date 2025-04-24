@@ -13,10 +13,12 @@ export async function analyzeCommits(pluginConfig, { cwd, lastRelease, logger })
         throw new Error(`dependencyToMirror ${ dependencyToMirror } not found in ${ absolutePathToPackageJson }`);
     }
 
-    const releaseType = diff(lastRelease.version, dependencyToMirrorVersion);
+    const lastReleaseVersion = lastRelease.version ?? dependencyToMirrorVersion; // if no lastRelease version, assume we're up to date
+
+    const releaseType = diff(lastReleaseVersion, dependencyToMirrorVersion);
 
     const message = releaseType
-        ? `${ dependencyToMirror } version changed from ${ lastRelease.version } to ${ dependencyToMirrorVersion } (${ releaseType })`
+        ? `${ dependencyToMirror } version changed from ${ lastReleaseVersion } to ${ dependencyToMirrorVersion } (${ releaseType })`
         : `${ dependencyToMirror } version did not change (${ dependencyToMirrorVersion })`;
 
     logger.log(message);
