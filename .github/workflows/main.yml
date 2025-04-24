@@ -5,6 +5,7 @@ on:
     branches: [ main, master, features/auto-deploy ]
   pull_request:
     branches: [ main, master ]
+
 jobs:
   test:
     timeout-minutes: 60
@@ -53,6 +54,9 @@ jobs:
       issues: write           # to be able to comment on released issues
       pull-requests: write    # to be able to comment on released pull requests
       id-token: write         # to enable use of OIDC for npm provenance
+
+    needs:
+      - test
     steps:
       - name: Checkout
         uses: actions/checkout@v4
