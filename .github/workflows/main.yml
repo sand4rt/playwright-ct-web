@@ -2,7 +2,10 @@ name: Main
 
 on:
   push:
-    branches: [ main, master, features/auto-deploy ]
+    branches:
+      - main
+      - master
+      - features/auto-deploy  # todo: remove
   pull_request:
     branches: [ main, master ]
 
@@ -56,7 +59,7 @@ jobs:
       issues: write           # to be able to comment on released issues
       pull-requests: write    # to be able to comment on released pull requests
       id-token: write         # to enable use of OIDC for npm provenance
-      packages: write         # to be able to publish to GitHub Packages
+      packages: write         # to be able to publish to GitHub Packages    # todo: remove
 
     needs:
       - test
@@ -80,6 +83,6 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm dlx semantic-release
         # pnpm publish --filter @sand4rt/experimental-ct-web --access public --no-git-checks
