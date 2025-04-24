@@ -4,22 +4,22 @@ import { diff } from 'semver';
 
 export async function analyzeCommits(pluginConfig, { cwd, lastRelease, logger }) {
 
-    const { dependencyToMirror, pathToPackageJson } = pluginConfig;
-    const absolutePathToPackageJson = resolve(cwd, pathToPackageJson);
-    const packageJson = JSON.parse(readFileSync(absolutePathToPackageJson));
-    const dependencyToMirrorVersion = packageJson.dependencies?.[dependencyToMirror];
+    const { dependency } = pluginConfig;
+    const pathToPackageJson = resolve(cwd, './package.json');
+    const packageJson = JSON.parse(readFileSync(pathToPackageJson));
+    const dependencyVersion = packageJson.dependencies?.[dependency];
 
-    if (! dependencyToMirrorVersion) {
-        throw new Error(`dependencyToMirror ${ dependencyToMirror } not found in ${ absolutePathToPackageJson }`);
+    if (! dependencyVersion) {
+        throw new Error(`Dependency ${ dependency } not found in ${ pathToPackageJson }`);
     }
 
-    const lastReleaseVersion = lastRelease.version ?? dependencyToMirrorVersion; // if no lastRelease version, assume we're up to date
+    const lastReleaseVersion = lastRelease.version ?? dependencyVersion; // if no lastRelease version, assume we're up to date
 
-    const releaseType = diff(lastReleaseVersion, dependencyToMirrorVersion);
+    const releaseType = diff(lastReleaseVersion, dependencyVersion);
 
     const message = releaseType
-        ? `${ dependencyToMirror } version changed from ${ lastReleaseVersion } to ${ dependencyToMirrorVersion } (${ releaseType })`
-        : `${ dependencyToMirror } version did not change (${ dependencyToMirrorVersion })`;
+        ? `${ dependency } version changed from ${ lastReleaseVersion } to ${ dependencyVersion } (${ releaseType })`
+        : `${ dependency } version did not change (${ dependencyVersion })`;
 
     logger.log(message);
 
@@ -27,12 +27,11 @@ export async function analyzeCommits(pluginConfig, { cwd, lastRelease, logger })
 }
 
 export async function prepare(pluginConfig, { cwd, nextRelease, logger }) {
-    const { pathToPackageJson } = pluginConfig;
-    const absolutePathToPackageJson = resolve(cwd, pathToPackageJson);
-    const packageJson = JSON.parse(readFileSync(absolutePathToPackageJson));
+    const pathToPackageJson = resolve(cwd, './package.json');
+    const packageJson = JSON.parse(readFileSync(pathToPackageJson));
 
     packageJson.version = nextRelease.version;
-    writeFileSync(absolutePathToPackageJson, JSON.stringify(packageJson, null, 2));
+    writeFileSync(pathToPackageJson, JSON.stringify(packageJson, null, 2));
 
     logger.log(`Updated ${ pathToPackageJson } version to ${ nextRelease.version }`);
 }
