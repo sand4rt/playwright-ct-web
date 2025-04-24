@@ -13,12 +13,12 @@ export async function analyzeCommits(pluginConfig, { cwd, lastRelease, logger })
         throw new Error(`Dependency ${ dependency } not found in ${ pathToPackageJson }`);
     }
 
-    const lastReleaseVersion = lastRelease.version ?? dependencyVersion; // if no lastRelease version, assume we're up to date
+    const currentVersion = packageJson.version;
 
-    const releaseType = diff(lastReleaseVersion, dependencyVersion);
+    const releaseType = diff(currentVersion, dependencyVersion);
 
     const message = releaseType
-        ? `${ dependency } version changed from ${ lastReleaseVersion } to ${ dependencyVersion } (${ releaseType })`
+        ? `${ dependency } version changed from ${ currentVersion } to ${ dependencyVersion } (${ releaseType })`
         : `${ dependency } version did not change (${ dependencyVersion })`;
 
     logger.log(message);
