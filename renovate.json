@@ -6,9 +6,7 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "packagePatterns": [
-        "@sand4rt/experimental-ct-web"
-      ],
+      "packagePatterns": ["^@playwright/experimental-ct-core$"],
       "groupName": "Playwright",
       "automerge": false
     },
