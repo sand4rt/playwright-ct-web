@@ -1,0 +1,23 @@
+{
+  "branches": [
+    "master"
+  ],
+  "repositoryUrl": "git@github.com:sand4rt/playwright-ct-web.git",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [ "../semantic-release-version-mirror", {
+        "dependency": "@playwright/experimental-ct-core"
+    } ],
+    [ "@semantic-release/npm", {
+        "npmPublish": true,
+        "tarballDir": "."
+    } ],
+    [ "@semantic-release/github", {
+      "assets": "*.tgz"
+    } ]
+  ],
+  "ci": true,
+  "debug": true,
+  "dryRun": false
+}
