@@ -8,7 +8,7 @@
     {
       "packagePatterns": ["^@playwright/experimental-ct-core$"],
       "groupName": "Playwright",
-      "automerge": false
+      "automerge": true
     },
     {
       "packagePatterns": ["^eslint$", "^eslint-plugin", "^@typescript-eslint"],
