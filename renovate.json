@@ -6,18 +6,18 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "packagePatterns": ["^@playwright/experimental-ct-core$"],
       "groupName": "Playwright",
+      "packagePatterns": ["^@playwright/experimental-ct-core$"],
       "automerge": true
     },
     {
-      "packagePatterns": ["^eslint$", "^eslint-plugin", "^@typescript-eslint"],
-      "groupName": "ESLint",
-      "automerge": false
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch"],
-      "matchCurrentVersion": "!/^0/",
+      "groupName": "Test and release automation dependencies",
+      "semanticCommitType": "chore",
+      "matchFileNames": [
+        "ct-web/package.json",
+        "ct-web-lit/package.json",
+        "semantic-release-version-mirror/package.json"
+      ],
       "automerge": false
     }
   ]
