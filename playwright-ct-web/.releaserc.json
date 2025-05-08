@@ -4,7 +4,6 @@
   ],
   "repositoryUrl": "git@github.com:sand4rt/playwright-ct-web.git",
   "plugins": [
-    "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     [ "../semantic-release-version-mirror", {
         "dependency": "@playwright/experimental-ct-core"
