@@ -17,8 +17,8 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^6.2.0
-        version: 6.2.7(@types/node@22.14.1)(jiti@2.4.2)
+        specifier: ^6.3.5
+        version: 6.3.5(@types/node@22.14.1)(jiti@2.4.2)
 
   ct-web-lit:
     dependencies:
@@ -33,8 +33,8 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^6.2.0
-        version: 6.2.7(@types/node@22.14.1)(jiti@2.4.2)
+        specifier: ^6.3.5
+        version: 6.3.5(@types/node@22.14.1)(jiti@2.4.2)
 
   playwright-ct-web:
     dependencies:
@@ -1984,46 +1984,6 @@ packages:
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
-
-  vite@6.2.7:
-    resolution: {integrity: sha512-qg3LkeuinTrZoJHHF94coSaTfIPyBYoywp+ys4qu20oSJFbKMYoIJo0FWJT9q6Vp49l6z9IsJRbHdcGtiKbGoQ==}
-    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
-      jiti: '>=1.21.0'
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      sass-embedded: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.16.0
-      tsx: ^4.8.1
-      yaml: ^2.4.2
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      jiti:
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      sass-embedded:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
-        optional: true
-      tsx:
-        optional: true
-      yaml:
-        optional: true
 
   vite@6.3.5:
     resolution: {integrity: sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ==}
@@ -3983,16 +3943,6 @@ snapshots:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
-
-  vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2):
-    dependencies:
-      esbuild: 0.25.6
-      postcss: 8.5.6
-      rollup: 4.44.2
-    optionalDependencies:
-      '@types/node': 22.14.1
-      fsevents: 2.3.3
-      jiti: 2.4.2
 
   vite@6.3.5(@types/node@22.14.1)(jiti@2.4.2):
     dependencies:
