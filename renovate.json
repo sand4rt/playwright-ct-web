@@ -18,7 +18,7 @@
         "ct-web-lit/package.json",
         "semantic-release-version-mirror/package.json"
       ],
-      "automerge": false
+      "automerge": true
     }
   ]
 }
