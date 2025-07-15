@@ -39,8 +39,8 @@ importers:
   playwright-ct-web:
     dependencies:
       '@playwright/experimental-ct-core':
-        specifier: 1.54.0
-        version: 1.54.0(@types/node@22.14.1)(jiti@2.4.2)
+        specifier: 1.54.1
+        version: 1.54.1(@types/node@22.14.1)(jiti@2.4.2)
     devDependencies:
       '@semantic-release/commit-analyzer':
         specifier: 13.0.1
@@ -335,8 +335,8 @@ packages:
   '@octokit/types@14.1.0':
     resolution: {integrity: sha512-1y6DgTy8Jomcpu33N+p5w58l6xyt55Ar2I91RPiIA0xCJBXyUAhXCcmZaDWSANiha7R9a6qJJ2CRomGPZ6f46g==}
 
-  '@playwright/experimental-ct-core@1.54.0':
-    resolution: {integrity: sha512-ecVWyDP6kZgsswOv5aKWn7UDSX0KlHp/gK0b4WWt6oeqDFGu7mvPT1n8KYRWtkRsXAQbG9A6WwebFTmcYeqK0A==}
+  '@playwright/experimental-ct-core@1.54.1':
+    resolution: {integrity: sha512-iwFdf95m9RCze47jv4hVbg3tDtsh3GFU1StiLludrPStHlZOtDj9/0GImTKrRmXHQCDcQRmQ9HZfJuGGxlWM3g==}
     engines: {node: '>=18'}
 
   '@pnpm/config.env-replace@1.1.0':
@@ -867,14 +867,6 @@ packages:
 
   fastq@1.19.1:
     resolution: {integrity: sha512-GwLTyxkCXjXbxqIhTsMI2Nui8huMPtnxg7krajPJAjnEG/iiOS7i+zCtWGZR9G0NBKbXKh6X9m9UIsYX/N6vvQ==}
-
-  fdir@6.4.4:
-    resolution: {integrity: sha512-1NZP+GK4GfuAv3PqKvxQRDMjdSRZjnkq7KfhlNrCNNlZ0ygQFpebfrnfnq/W7fpUnAv9aGWmY1zKx7FYL3gwhg==}
-    peerDependencies:
-      picomatch: ^3 || ^4
-    peerDependenciesMeta:
-      picomatch:
-        optional: true
 
   fdir@6.4.6:
     resolution: {integrity: sha512-hiFoqpyZcfNm1yc4u8oWCf9A2c4D3QjCrks3zmoVKVxpQRzmPNar1hUJcBG2RQHvEVGDN+Jm81ZheVLAQMK6+w==}
@@ -1574,13 +1566,13 @@ packages:
     resolution: {integrity: sha512-C+VUP+8jis7EsQZIhDYmS5qlNtjv2yP4SNtjXK9AP1ZcTRlnSfuumaTnRfYZnYgUUYVIKqL0fRvmUGDV2fmp6g==}
     engines: {node: '>=4'}
 
-  playwright-core@1.54.0:
-    resolution: {integrity: sha512-uiWpWaJh3R3etpJ0QrpligEMl62Dk1iSAB6NUXylvmQz+e3eipXHDHvOvydDAssb5Oqo0E818qdn0L9GcJSTyA==}
+  playwright-core@1.54.1:
+    resolution: {integrity: sha512-Nbjs2zjj0htNhzgiy5wu+3w09YetDx5pkrpI/kZotDlDUaYk0HVA5xrBVPdow4SAUIlhgKcJeJg4GRKW6xHusA==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.54.0:
-    resolution: {integrity: sha512-y9yzHmXRwEUOpghM7XGcA38GjWuTOUMaTIcm/5rHcYVjh5MSp9qQMRRMc/+p1cx+csoPnX4wkxAF61v5VKirxg==}
+  playwright@1.54.1:
+    resolution: {integrity: sha512-peWpSwIBmSLi6aW2auvrUtf2DqY16YYcCMO8rTVx486jKmDTJg7UAhyrraP98GB8BoPURZP8+nxO7TSd4cPr5g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1826,10 +1818,6 @@ packages:
   time-span@5.1.0:
     resolution: {integrity: sha512-75voc/9G4rDIJleOo4jPvN4/YC4GRZrY8yy1uU4lwrB3XEQbWve8zXoO5No4eFrGcTAMYyoY67p8jRQdtA1HbA==}
     engines: {node: '>=12'}
-
-  tinyglobby@0.2.13:
-    resolution: {integrity: sha512-mEwzpUgrLySlveBwEVDMKk5B57bhLPYovRfPAXD5gA/98Opn0rCDj3GtLwFvCvH5RK9uPCExUROW5NjDwvqkxw==}
-    engines: {node: '>=12.0.0'}
 
   tinyglobby@0.2.14:
     resolution: {integrity: sha512-tX5e7OM1HnYr2+a2C/4V0htOcSQcoSTH9KgJnVvNm5zm/cyEWKJ7j7YutsH9CxMdtOkkLFy2AHrMci9IM8IPZQ==}
@@ -2262,10 +2250,10 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 25.1.0
 
-  '@playwright/experimental-ct-core@1.54.0(@types/node@22.14.1)(jiti@2.4.2)':
+  '@playwright/experimental-ct-core@1.54.1(@types/node@22.14.1)(jiti@2.4.2)':
     dependencies:
-      playwright: 1.54.0
-      playwright-core: 1.54.0
+      playwright: 1.54.1
+      playwright-core: 1.54.1
       vite: 6.3.5(@types/node@22.14.1)(jiti@2.4.2)
     transitivePeerDependencies:
       - '@types/node'
@@ -2874,10 +2862,6 @@ snapshots:
     dependencies:
       reusify: 1.1.0
 
-  fdir@6.4.4(picomatch@4.0.2):
-    optionalDependencies:
-      picomatch: 4.0.2
-
   fdir@6.4.6(picomatch@4.0.2):
     optionalDependencies:
       picomatch: 4.0.2
@@ -3459,11 +3443,11 @@ snapshots:
       find-up: 2.1.0
       load-json-file: 4.0.0
 
-  playwright-core@1.54.0: {}
+  playwright-core@1.54.1: {}
 
-  playwright@1.54.0:
+  playwright@1.54.1:
     dependencies:
-      playwright-core: 1.54.0
+      playwright-core: 1.54.1
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -3753,11 +3737,6 @@ snapshots:
     dependencies:
       convert-hrtime: 5.0.0
 
-  tinyglobby@0.2.13:
-    dependencies:
-      fdir: 6.4.4(picomatch@4.0.2)
-      picomatch: 4.0.2
-
   tinyglobby@0.2.14:
     dependencies:
       fdir: 6.4.6(picomatch@4.0.2)
@@ -3817,11 +3796,11 @@ snapshots:
   vite@6.3.5(@types/node@22.14.1)(jiti@2.4.2):
     dependencies:
       esbuild: 0.25.6
-      fdir: 6.4.4(picomatch@4.0.2)
+      fdir: 6.4.6(picomatch@4.0.2)
       picomatch: 4.0.2
       postcss: 8.5.6
       rollup: 4.44.2
-      tinyglobby: 0.2.13
+      tinyglobby: 0.2.14
     optionalDependencies:
       '@types/node': 22.14.1
       fsevents: 2.3.3
