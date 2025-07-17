@@ -17,8 +17,8 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^7.0.4
-        version: 7.0.4(@types/node@22.14.1)(jiti@2.4.2)
+        specifier: ^7.0.5
+        version: 7.0.5(@types/node@22.14.1)(jiti@2.4.2)
 
   ct-web-lit:
     dependencies:
@@ -33,8 +33,8 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
       vite:
-        specifier: ^7.0.4
-        version: 7.0.4(@types/node@22.14.1)(jiti@2.4.2)
+        specifier: ^7.0.5
+        version: 7.0.5(@types/node@22.14.1)(jiti@2.4.2)
 
   playwright-ct-web:
     dependencies:
@@ -1940,8 +1940,8 @@ packages:
       yaml:
         optional: true
 
-  vite@7.0.4:
-    resolution: {integrity: sha512-SkaSguuS7nnmV7mfJ8l81JGBFV7Gvzp8IzgE8A8t23+AxuNX61Q5H1Tpz5efduSN7NHC8nQXD3sKQKZAu5mNEA==}
+  vite@7.0.5:
+    resolution: {integrity: sha512-1mncVwJxy2C9ThLwz0+2GKZyEXuC3MyWtAAlNftlZZXZDP3AJt5FmwcMit/IGGaNZ8ZOB2BNO/HFUB+CpN0NQw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -3806,7 +3806,7 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.4.2
 
-  vite@7.0.4(@types/node@22.14.1)(jiti@2.4.2):
+  vite@7.0.5(@types/node@22.14.1)(jiti@2.4.2):
     dependencies:
       esbuild: 0.25.6
       fdir: 6.4.6(picomatch@4.0.2)
