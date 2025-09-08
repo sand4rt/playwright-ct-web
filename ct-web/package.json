@@ -12,6 +12,6 @@
   "devDependencies": {
     "@sand4rt/experimental-ct-web": "workspace:*",
     "typescript": "^5.9.2",
-    "vite": "^7.1.4"
+    "vite": "^7.1.5"
   }
 }
