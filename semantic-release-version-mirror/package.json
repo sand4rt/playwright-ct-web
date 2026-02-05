@@ -7,7 +7,7 @@
   "scripts": {
   },
   "dependencies": {
-    "semver": "7.7.3"
+    "semver": "7.7.4"
   },
   "peerDependencies": {
     "semantic-release": "^25.0.3"
