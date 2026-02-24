@@ -10,7 +10,7 @@
   },
   "homepage": "https://github.com/sand4rt/playwright-ct-web#readme",
   "engines": {
-    "node": ">=24.11.1",
+    "node": ">=24.14.0",
     "pnpm": ">=10.21.0"
   },
   "scripts": {
