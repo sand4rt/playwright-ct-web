@@ -39,8 +39,8 @@ importers:
   playwright-ct-web:
     dependencies:
       '@playwright/experimental-ct-core':
-        specifier: 1.58.2
-        version: 1.58.2(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.32.0)
+        specifier: 1.59.0
+        version: 1.59.0(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.32.0)
     devDependencies:
       '@semantic-release/commit-analyzer':
         specifier: 13.0.1
@@ -510,8 +510,8 @@ packages:
   '@oxc-project/types@0.122.0':
     resolution: {integrity: sha512-oLAl5kBpV4w69UtFZ9xqcmTi+GENWOcPF7FCrczTiBbmC0ibXxCwyvZGbO39rCVEuLGAZM84DH0pUIyyv/YJzA==}
 
-  '@playwright/experimental-ct-core@1.58.2':
-    resolution: {integrity: sha512-Imif9ggQp6YIblHAX6MvJuqDFrCGHYspoibxLP3+1soXp+1wBNuuSRajv0VWXzFbh//4l29I+xy2tpTgej0vEA==}
+  '@playwright/experimental-ct-core@1.59.0':
+    resolution: {integrity: sha512-RtzPWWuJng8wfHY8prbQO+FpQQiAaMvDt7SAXYVeSv8MEblxAAAxo4eWMzK/FYjY0HiUzb63iR/LcFE0rSw+tQ==}
     engines: {node: '>=18'}
 
   '@pnpm/config.env-replace@1.1.0':
@@ -1889,10 +1889,6 @@ packages:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
 
-  picomatch@4.0.3:
-    resolution: {integrity: sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==}
-    engines: {node: '>=12'}
-
   picomatch@4.0.4:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
@@ -1905,13 +1901,13 @@ packages:
     resolution: {integrity: sha512-C+VUP+8jis7EsQZIhDYmS5qlNtjv2yP4SNtjXK9AP1ZcTRlnSfuumaTnRfYZnYgUUYVIKqL0fRvmUGDV2fmp6g==}
     engines: {node: '>=4'}
 
-  playwright-core@1.58.2:
-    resolution: {integrity: sha512-yZkEtftgwS8CsfYo7nm0KE8jsvm6i/PTgVtB8DL726wNf6H2IMsDuxCpJj59KDaxCtSnrWan2AeDqM7JBaultg==}
+  playwright-core@1.59.0:
+    resolution: {integrity: sha512-PW/X/IoZ6BMUUy8rpwHEZ8Kc0IiLIkgKYGNFaMs5KmQhcfLILNx9yCQD0rnWeWfz1PNeqcFP1BsihQhDOBCwZw==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.58.2:
-    resolution: {integrity: sha512-vA30H8Nvkq/cPBnNw4Q8TWz1EJyqgpuinBcHET0YVJVFldr8JDNiU9LaWAE1KqSkRYazuaBhTpB5ZzShOezQ6A==}
+  playwright@1.59.0:
+    resolution: {integrity: sha512-wihGScriusvATUxmhfENxg0tj1vHEFeIwxlnPFKQTOQVd7aG08mUfvvniRP/PtQOC+2Bs52kBOC/Up1jTXeIbw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2728,10 +2724,10 @@ snapshots:
 
   '@oxc-project/types@0.122.0': {}
 
-  '@playwright/experimental-ct-core@1.58.2(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.32.0)':
+  '@playwright/experimental-ct-core@1.59.0(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.32.0)':
     dependencies:
-      playwright: 1.58.2
-      playwright-core: 1.58.2
+      playwright: 1.59.0
+      playwright-core: 1.59.0
       vite: 6.4.1(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.32.0)
     transitivePeerDependencies:
       - '@types/node'
@@ -3419,10 +3415,6 @@ snapshots:
   fast-uri@3.0.6:
     optional: true
 
-  fdir@6.5.0(picomatch@4.0.3):
-    optionalDependencies:
-      picomatch: 4.0.3
-
   fdir@6.5.0(picomatch@4.0.4):
     optionalDependencies:
       picomatch: 4.0.4
@@ -4035,8 +4027,6 @@ snapshots:
 
   picomatch@2.3.1: {}
 
-  picomatch@4.0.3: {}
-
   picomatch@4.0.4: {}
 
   pify@3.0.0: {}
@@ -4046,11 +4036,11 @@ snapshots:
       find-up: 2.1.0
       load-json-file: 4.0.0
 
-  playwright-core@1.58.2: {}
+  playwright-core@1.59.0: {}
 
-  playwright@1.58.2:
+  playwright@1.59.0:
     dependencies:
-      playwright-core: 1.58.2
+      playwright-core: 1.59.0
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -4443,8 +4433,8 @@ snapshots:
   vite@6.4.1(@types/node@22.14.1)(jiti@2.4.2)(lightningcss@1.32.0):
     dependencies:
       esbuild: 0.25.6
-      fdir: 6.5.0(picomatch@4.0.3)
-      picomatch: 4.0.3
+      fdir: 6.5.0(picomatch@4.0.4)
+      picomatch: 4.0.4
       postcss: 8.5.8
       rollup: 4.44.2
       tinyglobby: 0.2.15
