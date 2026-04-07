@@ -17,8 +17,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^8.0.6
-        version: 8.0.6(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
+        specifier: ^8.0.7
+        version: 8.0.7(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
 
   ct-web-lit:
     dependencies:
@@ -33,8 +33,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^8.0.6
-        version: 8.0.6(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
+        specifier: ^8.0.7
+        version: 8.0.7(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
 
   playwright-ct-web:
     dependencies:
@@ -2301,8 +2301,8 @@ packages:
       yaml:
         optional: true
 
-  vite@8.0.6:
-    resolution: {integrity: sha512-jeOXoY6N8rOfit/mZADMd0misLqjRdWBB3/S23ZQNuPcbVsfMBJutWD8b4ftdczMOsNyMBnKro0Z1Kt0HIqq5Q==}
+  vite@8.0.7:
+    resolution: {integrity: sha512-P1PbweD+2/udplnThz3btF4cf6AgPky7kk23RtHUkJIU5BIxwPprhRGmOAHs6FTI7UiGbTNrgNP6jSYD6JaRnw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -4449,7 +4449,7 @@ snapshots:
       jiti: 2.4.2
       lightningcss: 1.32.0
 
-  vite@8.0.6(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2):
+  vite@8.0.7(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2):
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
