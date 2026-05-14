@@ -11,7 +11,7 @@
   "homepage": "https://github.com/sand4rt/playwright-ct-web#readme",
   "engines": {
     "node": ">=24.11.1",
-    "pnpm": ">=10.21.0"
+    "pnpm": ">=10.33.4"
   },
   "scripts": {
     "test": "pnpm --stream -r test",
@@ -19,5 +19,5 @@
     "release": "pnpm --stream -r release",
     "playwright:version": "node -e \"console.log(require('./playwright-ct-web/package.json').dependencies['@playwright/experimental-ct-core'])\""
   },
-  "packageManager": "pnpm@10.21.0+sha512.da3337267e400fdd3d479a6c68079ac6db01d8ca4f67572083e722775a796788a7a9956613749e000fac20d424b594f7a791a5f4e2e13581c5ef947f26968a40"
+  "packageManager": "pnpm@10.33.4+sha512.1c67b3b359b2d408119ba1ed289f34b8fc3c6873412bec6fd264fbdc82489e510fcbecb9ce9d22dae7f3b76269d8441046014bdca53b9979cd7a561ad631b800"
 }
