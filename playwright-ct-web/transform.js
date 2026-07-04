@@ -7,7 +7,6 @@ exports.default = void 0;
 exports.importInfo = importInfo;
 var _path = _interopRequireDefault(require("path"));
 var _babelBundle = require("playwright/lib/transform/babelBundle");
-var _transform = require("playwright/lib/transform/transform");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 /**
  * Copyright (c) Microsoft Corporation.
@@ -29,7 +28,7 @@ const t = _babelBundle.types;
 let jsxComponentNames;
 let classComponentNames;
 let importInfos;
-var _default = exports.default = (0, _babelBundle.declare)(api => {
+var _default = exports.default = (0, _babelBundle.declare)((api, options) => {
   api.assertVersion(7);
   const result = {
     name: 'playwright-debug-transform',
@@ -51,7 +50,7 @@ var _default = exports.default = (0, _babelBundle.declare)(api => {
           for (const [localName, componentImport] of [...importInfos.entries()].reverse()) {
             insertionPath.insertAfter(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(localName), t.objectExpression([t.objectProperty(t.identifier('__pw_type'), t.stringLiteral('importRef')), t.objectProperty(t.identifier('id'), t.stringLiteral(componentImport.id))]))]));
           }
-          (0, _transform.setTransformData)('playwright-ct-core', [...importInfos.values()]);
+          options.setTransformData('playwright-ct-core', [...importInfos.values()]);
         }
       },
       ImportDeclaration(p) {
