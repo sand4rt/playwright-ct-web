@@ -39,8 +39,8 @@ importers:
   playwright-ct-web:
     dependencies:
       '@playwright/experimental-ct-core':
-        specifier: 1.62.0
-        version: 1.62.0(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
+        specifier: 1.62.1
+        version: 1.62.1(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
     devDependencies:
       '@semantic-release/commit-analyzer':
         specifier: 13.0.1
@@ -358,8 +358,8 @@ packages:
   '@oxc-project/types@0.142.0':
     resolution: {integrity: sha512-7W+2q5AKQVU36fkaryontrHn3YDt1RyUYXatw9i5H8ocYe2sPKSFB6eS8WNPeRKiN1qAWWZUPm7gwFzJGrccqQ==}
 
-  '@playwright/experimental-ct-core@1.62.0':
-    resolution: {integrity: sha512-jmd7zmlTHrDf4coLZKxIQSmc8Dqr9NuNnadSQx1xeBlkoCUYO9eiiL5yIQ71LKHm/xcipRpe6HSIFEjoxXsAvQ==}
+  '@playwright/experimental-ct-core@1.62.1':
+    resolution: {integrity: sha512-GvaAlFMG6kZ+/00QyGOemjBkyDTk7OC1wGcVmO27i4Ek+x51ACjIBMyyyZrTGXHtQ1QvTFhaQrBhrXIrXEjn5g==}
     engines: {node: '>=20'}
 
   '@pnpm/config.env-replace@1.1.0':
@@ -1625,13 +1625,13 @@ packages:
     resolution: {integrity: sha512-C+VUP+8jis7EsQZIhDYmS5qlNtjv2yP4SNtjXK9AP1ZcTRlnSfuumaTnRfYZnYgUUYVIKqL0fRvmUGDV2fmp6g==}
     engines: {node: '>=4'}
 
-  playwright-core@1.62.0:
-    resolution: {integrity: sha512-nsNRyq0r2zsG8AcRHWknc9QRA5XCueC7gWMrs+Gx2tlZn9hcl8zudfh00lhJPY1DE7NmZ6bDsT9g2yey8mXljA==}
+  playwright-core@1.62.1:
+    resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright@1.62.0:
-    resolution: {integrity: sha512-Z14dG305dgaLu6foB1TXQagFiW8JfSUIUaUuPaKQ6NtBPKF1P/qXcqfh6c6K/icPqdy37JmjbiBXf6JNg6Sylw==}
+  playwright@1.62.1:
+    resolution: {integrity: sha512-0M+L3LAD8/nm554LOla9Ayx0j0tmFZ0FBcoQ7F1VuVHpM/XpiC8RcDzBQB8W5+hA8L22THxELzeF+2WcUzvcLg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -2339,10 +2339,10 @@ snapshots:
 
   '@oxc-project/types@0.142.0': {}
 
-  '@playwright/experimental-ct-core@1.62.0(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)':
+  '@playwright/experimental-ct-core@1.62.1(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)':
     dependencies:
-      playwright: 1.62.0
-      playwright-core: 1.62.0
+      playwright: 1.62.1
+      playwright-core: 1.62.1
       vite: 8.2.0(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
     transitivePeerDependencies:
       - '@types/node'
@@ -3623,11 +3623,11 @@ snapshots:
       find-up: 2.1.0
       load-json-file: 4.0.0
 
-  playwright-core@1.62.0: {}
+  playwright-core@1.62.1: {}
 
-  playwright@1.62.0:
+  playwright@1.62.1:
     dependencies:
-      playwright-core: 1.62.0
+      playwright-core: 1.62.1
     optionalDependencies:
       fsevents: 2.3.2
 
