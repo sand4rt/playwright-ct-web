@@ -17,8 +17,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^8.3.7
-        version: 8.3.7(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
+        specifier: ^8.3.8
+        version: 8.3.8(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
 
   ct-web-lit:
     dependencies:
@@ -33,8 +33,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite:
-        specifier: ^8.3.7
-        version: 8.3.7(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
+        specifier: ^8.3.8
+        version: 8.3.8(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
 
   playwright-ct-web:
     dependencies:
@@ -1979,8 +1979,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vite@8.3.7:
-    resolution: {integrity: sha512-oxh0dMxrayBr33ScJvvBJ2HBQ2jc1TBrXKR2NyL/MJ9WPuX19mN2DXWUmywKdyw5RFVQBo8hmtb2FMC0LHrnng==}
+  vite@8.3.8:
+    resolution: {integrity: sha512-LzOn3h9rG/0vhLdXrV4yJ4QFA9eEoqCl+Yx+kGJd7aB9w6nfNgVHKSYwLPZUHrz4ZGa+t+kXjV9itvcHDLQouA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -2308,7 +2308,7 @@ snapshots:
     dependencies:
       playwright: 1.62.1
       playwright-core: 1.62.1
-      vite: 8.3.7(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
+      vite: 8.3.8(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2)
     transitivePeerDependencies:
       - '@types/node'
       - '@vitejs/devtools'
@@ -3987,7 +3987,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite@8.3.7(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2):
+  vite@8.3.8(@types/node@22.14.1)(esbuild@0.27.1)(jiti@2.4.2):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.7
